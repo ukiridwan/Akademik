@@ -5,8 +5,6 @@
  */
 package Model;
 
-import Controller.*;
-
 /**
  *
  * @author Toms
@@ -57,6 +55,4 @@ public class Dosen {
     public void setPassDosen(String passDosen) {
         this.passDosen = passDosen;
     }
-
-    
 }
