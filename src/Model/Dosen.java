@@ -13,10 +13,10 @@ public class Dosen {
     private String nik;
     private String namaDosen;
     private String alamatDosen;
-    private String telpDosen;
+    private int telpDosen;
     private String passDosen;
 
-    public Dosen(String namaDosen, String nik, String alamatDosen, String telpDosen, String passDosen) {
+    public Dosen(String namaDosen, String nik, String alamatDosen, int telpDosen, String passDosen) {
         this.namaDosen = namaDosen;
         this.nik = nik;
         this.alamatDosen = alamatDosen;
@@ -48,11 +48,11 @@ public class Dosen {
         this.alamatDosen = alamatDosen;
     }
 
-    public String getTelpDosen() {
+    public int getTelpDosen() {
         return telpDosen;
     }
 
-    public void setTelpDosen(String telpDosen) {
+    public void setTelpDosen(int telpDosen) {
         this.telpDosen = telpDosen;
     }
 
