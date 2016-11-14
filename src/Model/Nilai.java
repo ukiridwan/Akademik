@@ -13,6 +13,7 @@ public class Nilai {
     private double uts;
     private double uas;
     private double tugas;
+    private String indeks;
 
     public Nilai(double uts, double uas, double tugas) {
         this.uts = uts;
@@ -42,5 +43,31 @@ public class Nilai {
 
     public void setUts(double uts) {
         this.uts = uts;
+    }
+    
+    public void hitungIndeks(double tugas, double uas, double uts) {
+        
+        double total = 0.2*tugas + 0.4*uts + 0.4*uas;
+        if (total>=80) {
+            this.indeks = "A";
+        }
+        else if (total<=79 && total>=75) {
+            this.indeks = "AB";
+        }
+        else if (total<=74 && total>=65) {
+            this.indeks = "B";
+        }
+        else if (total<=64 && total>=55){
+            this.indeks = "BC";
+        }
+        else if (total<=54 && total>=45){
+            this.indeks = "C";
+        }
+        else if (total<=44 && total>= 20){
+            this.indeks = "D";
+        }
+        else{
+            this.indeks = "E";
+        }
     }
 }
