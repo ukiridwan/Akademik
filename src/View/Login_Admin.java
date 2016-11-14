@@ -195,4 +195,7 @@ public class Login_Admin extends javax.swing.JFrame {
         this.txtUnameAdmin = txtUnameAdmin;
     }
     
+    public void addListener(ActionListener ae){
+        btnLoginAdmin.addActionListener(ae);
+    }
 }
