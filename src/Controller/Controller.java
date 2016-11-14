@@ -37,7 +37,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         la = new Login_Admin();
         ld = new Login_Dosen();
         lm.setVisible(true);
-        lm.addListener(this);
+//        lm.addListener(this);
     }
 
     @Override

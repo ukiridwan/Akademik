@@ -38,7 +38,7 @@ public class Aplikasi {
         Mahasiswa mhs = new Mahasiswa(namaMhs, nim, kelas, alamatMhs, telpMhs, passMhs, token);
         try{
             dataMhs.add(mhs);
-            con.saveMahasiswa(mhs);
+            con.saveMhs(mhs);
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -47,14 +47,14 @@ public class Aplikasi {
     
     public void updateMahasiswa(Mahasiswa mhs){
         try{
-            con.updateMahasiswa(mhs);
+            con.updateMhs(mhs);
         }catch(SQLException ex){
             ex.printStackTrace();
         }
     }
     
     public Mahasiswa getMahasiswa(String nim) throws SQLException{
-        Mahasiswa mhs = con.getMahasiswa(nim);
+        Mahasiswa mhs = con.getMhs(nim);
         return mhs;
     }
     
@@ -63,7 +63,7 @@ public class Aplikasi {
     }
     
     public void delMhs(String nim) throws SQLException{
-        con.delMahasiswa(nim);
+        con.delMhs(nim);
     }
     
 //    public ArrayList<Mahasiswa> getAllMahasiswa() throws SQLException{
