@@ -16,6 +16,14 @@ public class Dosen {
     private String telpDosen;
     private String passDosen;
 
+    public Dosen(String namaDosen, String nik, String alamatDosen, String telpDosen, String passDosen) {
+        this.namaDosen = namaDosen;
+        this.nik = nik;
+        this.alamatDosen = alamatDosen;
+        this.telpDosen = telpDosen;
+        this.passDosen = passDosen;
+    }
+
     public String getNik() {
         return nik;
     }

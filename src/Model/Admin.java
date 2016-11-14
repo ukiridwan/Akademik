@@ -18,6 +18,14 @@ public class Admin {
     private String telpAdmin;
     private String passAdmin;
 
+    public Admin(String namaAdmin, String nip, String alamatAdmin, String telpAdmin, String passAdmin) {
+        this.namaAdmin = namaAdmin;
+        this.nip = nip;
+        this.alamatAdmin = alamatAdmin;
+        this.telpAdmin = telpAdmin;
+        this.passAdmin = passAdmin;
+    }
+
     public String getNip() {
         return nip;
     }
