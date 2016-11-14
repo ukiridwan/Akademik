@@ -5,6 +5,31 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -28,32 +53,33 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane3 = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblLoginMhs = new javax.swing.JLabel();
+        txtUnameMhs = new javax.swing.JTextField();
+        lblUsername = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
+        BtnLoginMhs = new javax.swing.JButton();
+        BtnChangeLoginToDosen = new javax.swing.JButton();
+        BtnChangeLoginToAdmin = new javax.swing.JButton();
+        lblSbgMahasiswa = new javax.swing.JLabel();
+        txtPassMhs = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Login");
+        lblLoginMhs.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblLoginMhs.setText("Login");
 
-        jLabel2.setText("Username");
+        lblUsername.setText("Username");
 
-        jLabel3.setText("Password");
+        lblPass.setText("Password");
 
-        jButton1.setText("Login");
+        BtnLoginMhs.setText("Login");
 
-        jButton2.setText("Dosen");
+        BtnChangeLoginToDosen.setText("Dosen");
 
-        jButton3.setText("Admin");
+        BtnChangeLoginToAdmin.setText("Admin");
 
-        jLabel4.setText("Sebagai Mahasiswa");
+        lblSbgMahasiswa.setText("Sebagai Mahasiswa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,56 +87,56 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jButton2)
+                .addComponent(BtnChangeLoginToDosen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(BtnChangeLoginToAdmin)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblUsername)
                         .addGap(27, 27, 27)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUnameMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblPass)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(BtnLoginMhs)
                                 .addGap(66, 66, 66))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtPassMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(92, 92, 92))
             .addGroup(layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1))
+                    .addComponent(lblSbgMahasiswa)
+                    .addComponent(lblLoginMhs))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel1)
+                .addComponent(lblLoginMhs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(lblSbgMahasiswa)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(txtUnameMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsername))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPass)
+                    .addComponent(txtPassMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
+                .addComponent(BtnLoginMhs)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(BtnChangeLoginToDosen)
+                    .addComponent(BtnChangeLoginToAdmin))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -156,15 +182,58 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton BtnChangeLoginToAdmin;
+    private javax.swing.JButton BtnChangeLoginToDosen;
+    private javax.swing.JButton BtnLoginMhs;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblLoginMhs;
+    private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblSbgMahasiswa;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JPasswordField txtPassMhs;
+    private javax.swing.JTextField txtUnameMhs;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnLoginMhs() {
+        return BtnLoginMhs;
+    }
+
+    public JButton getBtnChangeLoginToAdmin() {
+        return BtnChangeLoginToAdmin;
+    }
+
+    public JButton getBtnChangeLoginToDosen() {
+        return BtnChangeLoginToDosen;
+    }
+
+    public String getTxtPassMhs() {
+        return txtPassMhs.getText();
+    }
+
+    public String getTxtUnameMhs() {
+        return txtUnameMhs.getText();
+    }
+
+    public void setTxtPassMhs(JPasswordField txtPassMhs) {
+        this.txtPassMhs = txtPassMhs;
+    }
+
+    public void setTxtUnameMhs(JTextField txtUnameMhs) {
+        this.txtUnameMhs = txtUnameMhs;
+    }
+
+    public void setBtnLoginMhs(JButton BtnLoginMhs) {
+        this.BtnLoginMhs = BtnLoginMhs;
+    }
+
+    public void setBtnChangeLoginToAdmin(JButton BtnChangeLoginToAdmin) {
+        this.BtnChangeLoginToAdmin = BtnChangeLoginToAdmin;
+    }
+
+    public void setBtnChangeLoginToDosen(JButton BtnChangeLoginToDosen) {
+        this.BtnChangeLoginToDosen = BtnChangeLoginToDosen;
+    }
+    
+    
 }
+

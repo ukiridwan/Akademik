@@ -5,6 +5,31 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -27,26 +52,26 @@ public class Login_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblLoginAdmin = new javax.swing.JLabel();
+        lblSebagaiAdmin = new javax.swing.JLabel();
+        txtUnameAdmin = new javax.swing.JTextField();
+        lblUnameAdmin = new javax.swing.JLabel();
+        lblPassAdmin = new javax.swing.JLabel();
+        btnLoginAdmin = new javax.swing.JButton();
+        txtPassAdmin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Login");
+        lblLoginAdmin.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblLoginAdmin.setText("Login");
 
-        jLabel4.setText("Sebagai Administrator");
+        lblSebagaiAdmin.setText("Sebagai Administrator");
 
-        jLabel2.setText("Username");
+        lblUnameAdmin.setText("Username");
 
-        jLabel3.setText("Password");
+        lblPassAdmin.setText("Password");
 
-        jButton1.setText("Login");
+        btnLoginAdmin.setText("Login");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,44 +81,44 @@ public class Login_Admin extends javax.swing.JFrame {
                 .addContainerGap(104, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblUnameAdmin)
                         .addGap(27, 27, 27)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblPassAdmin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnLoginAdmin)
                                 .addGap(66, 66, 66))
-                            .addComponent(jPasswordField1))))
+                            .addComponent(txtPassAdmin))))
                 .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(lblSebagaiAdmin)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblLoginAdmin)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jLabel1)
+                .addComponent(lblLoginAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(lblSebagaiAdmin)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(txtUnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUnameAdmin))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPassAdmin)
+                    .addComponent(txtPassAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnLoginAdmin)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -137,12 +162,37 @@ public class Login_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnLoginAdmin;
+    private javax.swing.JLabel lblLoginAdmin;
+    private javax.swing.JLabel lblPassAdmin;
+    private javax.swing.JLabel lblSebagaiAdmin;
+    private javax.swing.JLabel lblUnameAdmin;
+    private javax.swing.JPasswordField txtPassAdmin;
+    private javax.swing.JTextField txtUnameAdmin;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnLoginAdmin() {
+        return btnLoginAdmin;
+    }
+
+    public String getTxtPassAdmin() {
+        return txtPassAdmin.getText();
+    }
+
+    public String getTxtUnameAdmin() {
+        return txtUnameAdmin.getText();
+    }
+
+    public void setBtnLoginAdmin(JButton btnLoginAdmin) {
+        this.btnLoginAdmin = btnLoginAdmin;
+    }
+
+    public void setTxtPassAdmin(JPasswordField txtPassAdmin) {
+        this.txtPassAdmin = txtPassAdmin;
+    }
+
+    public void setTxtUnameAdmin(JTextField txtUnameAdmin) {
+        this.txtUnameAdmin = txtUnameAdmin;
+    }
+    
 }
