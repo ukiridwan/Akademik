@@ -5,6 +5,7 @@
  */
 package database;
 
+import Model.Dosen;
 import Model.Mahasiswa;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +29,7 @@ public class Database {
     }
     
     //Mahasiswa
-    public void saveMahasiswa(Mahasiswa mhs) throws SQLException{
+    public void saveMhs(Mahasiswa mhs) throws SQLException{
         String query = "INSERT INTO mahasiswa(namaMhs, nim, kelas, alamatMhs, telpMhs, passMhs, token) VALUES ('"
                         +mhs.getNamaMhs()+"','"+mhs.getNim()+"','"+mhs.getKelas()+"','"+mhs.getAlamatMhs()+"','"
                         +mhs.getTelpMhs()+"','"+mhs.getPassMhs()+"','"+mhs.getToken()+"')";
@@ -36,7 +37,7 @@ public class Database {
         ResultSet rs = st.getGeneratedKeys();
     }
     
-    public Mahasiswa getMahasiswa(String nim) throws SQLException{
+    public Mahasiswa getMhs(String nim) throws SQLException{
         Mahasiswa mhs = null;
         String query = "SELECT * FROM mahasiswa WHERE nim = '"+nim+"'";
         ResultSet rs = st.executeQuery(query);
@@ -46,7 +47,7 @@ public class Database {
         return mhs;
     }
     
-    public void updateMahasiswa(Mahasiswa mhs) throws SQLException{
+    public void updateMhs(Mahasiswa mhs) throws SQLException{
         String query = "UPDATE mahasiswa SET alamatMhs ='"
                         +mhs.getAlamatMhs()+"', telpMhs='"
                         +mhs.getTelpMhs()+"', passMhs='"
@@ -65,7 +66,27 @@ public class Database {
         return listnim.toArray(new String[0]);
     }
     
-    public void delMahasiswa(String nim) throws SQLException{
-        
+    public void delMhs(String nim) throws SQLException{
+        String query = "DELETE FROM mahasiswa where nim='"+nim+"'";
+        st.execute(query);
+    }
+    
+    //Dosen
+    public void saveDosen(Dosen dosen) throws SQLException{
+        String query = "INSERT INTO dosen(namaDosen, nik, alamatDosen, telpDosen, passDosen) VALUES ('"
+                        +dosen.getNamaDosen()+"','"+dosen.getNik()+"','"+dosen.getAlamatDosen()+"','"
+                        +dosen.getTelpDosen()+"','"+dosen.getPassDosen()+"')";
+        st.execute(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = st.getGeneratedKeys();
+    }
+    
+    public Dosen getDosen(String nik) throws SQLException{
+        Dosen dosen = null;
+        String query = "SELECT * FROM dosen WHERE nik = '"+nik+"'";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+            dosen = new Dosen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+        }
+        return dosen;
     }
 }
