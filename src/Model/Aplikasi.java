@@ -5,10 +5,16 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author UKI
+ * @author Toms
  */
 public class Aplikasi {
-    
+    private ArrayList<Admin> dataAdmin;
+    private ArrayList<Dosen> dataDosen;
+    private ArrayList<Mahasiswa> dataMhs;
+    private ArrayList<Nilai> dataNilai;
+    private database con;
 }

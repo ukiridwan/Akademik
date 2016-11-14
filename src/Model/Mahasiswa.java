@@ -18,6 +18,16 @@ public class Mahasiswa {
     private String telpMhs;
     private String passMhs;
 
+    public Mahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token) {
+        this.namaMhs = namaMhs;
+        this.nim = nim;
+        this.kelas = kelas;
+        this.alamatMhs = alamatMhs;
+        this.telpMhs = telpMhs;
+        this.passMhs = passMhs;
+        this.token = token;
+    }
+    
     public String getNamaMhs() {
         return namaMhs;
     }
