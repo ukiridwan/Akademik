@@ -5,6 +5,31 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
@@ -27,26 +52,27 @@ public class Login_Dosen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblLoginDosen = new javax.swing.JLabel();
+        lblSebagaiDosen = new javax.swing.JLabel();
+        txtUnameDosen = new javax.swing.JTextField();
+        lblUnameDosen = new javax.swing.JLabel();
+        lblPassDosen = new javax.swing.JLabel();
+        btnLoginDosen = new javax.swing.JButton();
+        txtPassDosen = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(685, 300));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Login");
+        lblLoginDosen.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblLoginDosen.setText("Login");
 
-        jLabel4.setText("Sebagai Dosen");
+        lblSebagaiDosen.setText("Sebagai Dosen");
 
-        jLabel2.setText("Username");
+        lblUnameDosen.setText("Username");
 
-        jLabel3.setText("Password");
+        lblPassDosen.setText("Password");
 
-        jButton1.setText("Login");
+        btnLoginDosen.setText("Login");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,44 +83,44 @@ public class Login_Dosen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lblLoginDosen)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jLabel4)))
+                                .addComponent(lblSebagaiDosen)))
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(lblUnameDosen)
                                 .addGap(27, 27, 27)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtUnameDosen, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(lblPassDosen)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnLoginDosen)
                                         .addGap(66, 66, 66))
-                                    .addComponent(jPasswordField1))))
+                                    .addComponent(txtPassDosen))))
                         .addGap(98, 98, 98))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jLabel1)
+                .addComponent(lblLoginDosen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(lblSebagaiDosen)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(txtUnameDosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUnameDosen))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPassDosen)
+                    .addComponent(txtPassDosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnLoginDosen)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -138,12 +164,38 @@ public class Login_Dosen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnLoginDosen;
+    private javax.swing.JLabel lblLoginDosen;
+    private javax.swing.JLabel lblPassDosen;
+    private javax.swing.JLabel lblSebagaiDosen;
+    private javax.swing.JLabel lblUnameDosen;
+    private javax.swing.JPasswordField txtPassDosen;
+    private javax.swing.JTextField txtUnameDosen;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnLoginDosen() {
+        return btnLoginDosen;
+    }
+
+    public String getTxtPassDosen() {
+        return txtPassDosen.getText();
+    }
+
+    public String getTxtUnameDosen() {
+        return txtUnameDosen.getText();
+    }
+
+    public void setTxtPassDosen(JPasswordField txtPassDosen) {
+        this.txtPassDosen = txtPassDosen;
+    }
+
+    public void setTxtUnameDosen(JTextField txtUnameDosen) {
+        this.txtUnameDosen = txtUnameDosen;
+    }
+
+    public void setBtnLoginDosen(JButton btnLoginDosen) {
+        this.btnLoginDosen = btnLoginDosen;
+    }
+    
+
 }
