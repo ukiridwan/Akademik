@@ -37,7 +37,7 @@ public class Aplikasi {
     }
     
     //Mahasiswa
-    public String createMahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, int telpMhs, String passMhs, String token){
+    public String createMahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token){
         Mahasiswa mhs = new Mahasiswa(namaMhs, nim, kelas, alamatMhs, telpMhs, passMhs, token);
         try{
             dataMhs.add(mhs);

@@ -186,28 +186,28 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JTextField txtNIM;
     // End of variables declaration//GEN-END:variables
 
-    public void setTxtAlamat(JTextField txtAlamat) {
-        this.txtAlamat = txtAlamat;
+    public void setTxtAlamat(String s) {
+        this.txtAlamat.setText(s);
     }
 
-    public void setTxtInputNama(JTextField txtInputNama) {
-        this.txtInputNama = txtInputNama;
+    public void setTxtInputNama(String s) {
+        this.txtInputNama.setText(s);
     }
 
-    public void setTxtInputNoTlp(JTextField txtInputNoTlp) {
-        this.txtInputNoTlp = txtInputNoTlp;
+    public void setTxtInputNoTlp(String s) {
+        this.txtInputNoTlp.setText(s);
     }
 
-    public void setTxtNIM(JTextField txtNIM) {
-        this.txtNIM = txtNIM;
+    public void setTxtNIM(String s) {
+        this.txtNIM.setText(s);
     }
 
-    public void setBtnMenuUtama(JButton btnMenuUtama) {
-        this.btnMenuUtamaMhs = btnMenuUtama;
+    public void setBtnMenuUtama(String s) {
+        this.btnMenuUtamaMhs.setText(s);
     }
 
-    public void setBtnUpdteDataMhs(JButton btnUpdteDataMhs) {
-        this.btnUpdteDataMhs = btnUpdteDataMhs;
+    public void setBtnUpdteDataMhs(String s) {
+        this.btnUpdteDataMhs.setText(s);
     }
 
     public JButton getBtnMenuUtama() {

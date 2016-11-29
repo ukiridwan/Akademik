@@ -15,10 +15,10 @@ public class Mahasiswa {
     private String token;
     private String kelas;
     private String alamatMhs;
-    private int telpMhs;
+    private String telpMhs;
     private String passMhs;
 
-    public Mahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, int telpMhs, String passMhs, String token) {
+    public Mahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token) {
         this.namaMhs = namaMhs;
         this.nim = nim;
         this.kelas = kelas;
@@ -68,11 +68,11 @@ public class Mahasiswa {
         this.alamatMhs = alamatMhs;
     }
 
-    public int getTelpMhs() {
+    public String getTelpMhs() {
         return telpMhs;
     }
 
-    public void setTelpMhs(int telpMhs) {
+    public void setTelpMhs(String telpMhs) {
         this.telpMhs = telpMhs;
     }
 

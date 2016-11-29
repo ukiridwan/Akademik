@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
@@ -35,8 +40,8 @@ public class Input_MataKuliah extends javax.swing.JFrame {
         jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,9 +67,14 @@ public class Input_MataKuliah extends javax.swing.JFrame {
 
         jCheckBox6.setText("Bahasa Indonesia");
 
-        jButton1.setText("Submit");
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Kembali");
+        btnKembali.setText("Kembali");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,11 +102,11 @@ public class Input_MataKuliah extends javax.swing.JFrame {
                                     .addComponent(jCheckBox3)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(164, 164, 164)
-                        .addComponent(jButton1)))
+                        .addComponent(btnSubmit)))
                 .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnKembali)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -119,9 +129,9 @@ public class Input_MataKuliah extends javax.swing.JFrame {
                     .addComponent(jCheckBox5)
                     .addComponent(jCheckBox6))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnKembali)
                 .addContainerGap())
         );
 
@@ -131,6 +141,23 @@ public class Input_MataKuliah extends javax.swing.JFrame {
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        ArrayList checkbox = new ArrayList();
+        if(jCheckBox1.isSelected()){
+            checkbox.add(jCheckBox1.getText());
+        }else if(jCheckBox2.isSelected()){
+            checkbox.add(jCheckBox2.getText());
+        }else if(jCheckBox3.isSelected()){
+            checkbox.add(jCheckBox3.getText());
+        }else if(jCheckBox4.isSelected()){
+            checkbox.add(jCheckBox4.getText());
+        }else if(jCheckBox5.isSelected()){
+            checkbox.add(jCheckBox5.getText());
+        }else if(jCheckBox6.isSelected()){
+            checkbox.add(jCheckBox6.getText());
+        }
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,8 +196,8 @@ public class Input_MataKuliah extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -180,4 +207,13 @@ public class Input_MataKuliah extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+    public void addListener(ActionListener e){
+        btnKembali.addActionListener(e);
+        btnSubmit.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    }
+
 }

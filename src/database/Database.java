@@ -39,7 +39,7 @@ public class Database {
         String query = "SELECT * FROM mahasiswa WHERE nim = '"+nim+"'";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
-            mhs = new Mahasiswa(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7));
+            mhs = new Mahasiswa(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
         }
         return mhs;
     }
