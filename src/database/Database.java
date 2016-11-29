@@ -7,11 +7,7 @@ package database;
 
 import Model.Dosen;
 import Model.Mahasiswa;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +20,7 @@ public class Database {
     private Connection con;
     
     public void connect() throws SQLException {
-            con = DriverManager.getConnection(server, dbuser, dbpass);
+            con = DriverManager.getConnection(server, dbuser, dbuser);
             st = con.createStatement();
     }
     

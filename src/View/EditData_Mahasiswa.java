@@ -5,6 +5,12 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -27,95 +33,108 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        txtInputNama = new javax.swing.JTextField();
+        lblNama = new javax.swing.JLabel();
+        lblNim = new javax.swing.JLabel();
+        txtNIM = new javax.swing.JTextField();
+        txtAlamat = new javax.swing.JTextField();
+        lblAlamat = new javax.swing.JLabel();
+        lblNoTlp = new javax.swing.JLabel();
+        txtInputNoTlp = new javax.swing.JTextField();
+        btnUpdteDataMhs = new javax.swing.JButton();
+        lblDataMahasiswa = new javax.swing.JLabel();
+        btnMenuUtamaMhs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("Nama");
+        lblNama.setText("Nama");
 
-        jLabel3.setText("NIM");
+        lblNim.setText("NIM");
 
-        jLabel4.setText("Alamat");
+        txtNIM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNIMActionPerformed(evt);
+            }
+        });
 
-        jLabel5.setText("No. Telp");
+        lblAlamat.setText("Alamat");
 
-        jButton1.setText("Update");
+        lblNoTlp.setText("No. Telp");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Data Mahasiswa");
+        btnUpdteDataMhs.setText("Update");
 
-        jButton2.setText("Menu Utama");
+        lblDataMahasiswa.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblDataMahasiswa.setText("Data Mahasiswa");
+
+        btnMenuUtamaMhs.setText("Menu Utama");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addContainerGap(241, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(110, 110, 110))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNama)
+                            .addComponent(lblNim)
+                            .addComponent(lblAlamat)
+                            .addComponent(lblNoTlp))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnUpdteDataMhs)
+                                .addGap(85, 85, 85))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtInputNama)
+                                .addComponent(txtNIM)
+                                .addComponent(txtAlamat)
+                                .addComponent(txtInputNoTlp, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(126, 126, 126)
+                        .addComponent(btnMenuUtamaMhs)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblDataMahasiswa)
+                        .addGap(250, 250, 250))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblDataMahasiswa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNama)
+                            .addComponent(txtInputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNim)
+                            .addComponent(txtNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAlamat)
+                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNoTlp)
+                            .addComponent(txtInputNoTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdteDataMhs)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnMenuUtamaMhs)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNIMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNIMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,16 +173,76 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton btnMenuUtamaMhs;
+    private javax.swing.JButton btnUpdteDataMhs;
+    private javax.swing.JLabel lblAlamat;
+    private javax.swing.JLabel lblDataMahasiswa;
+    private javax.swing.JLabel lblNama;
+    private javax.swing.JLabel lblNim;
+    private javax.swing.JLabel lblNoTlp;
+    private javax.swing.JTextField txtAlamat;
+    private javax.swing.JTextField txtInputNama;
+    private javax.swing.JTextField txtInputNoTlp;
+    private javax.swing.JTextField txtNIM;
     // End of variables declaration//GEN-END:variables
+
+    public void setTxtAlamat(JTextField txtAlamat) {
+        this.txtAlamat = txtAlamat;
+    }
+
+    public void setTxtInputNama(JTextField txtInputNama) {
+        this.txtInputNama = txtInputNama;
+    }
+
+    public void setTxtInputNoTlp(JTextField txtInputNoTlp) {
+        this.txtInputNoTlp = txtInputNoTlp;
+    }
+
+    public void setTxtNIM(JTextField txtNIM) {
+        this.txtNIM = txtNIM;
+    }
+
+    public void setBtnMenuUtama(JButton btnMenuUtama) {
+        this.btnMenuUtamaMhs = btnMenuUtama;
+    }
+
+    public void setBtnUpdteDataMhs(JButton btnUpdteDataMhs) {
+        this.btnUpdteDataMhs = btnUpdteDataMhs;
+    }
+
+    public JButton getBtnMenuUtama() {
+        return btnMenuUtamaMhs;
+    }
+
+    public JButton getBtnUpdteDataMhs() {
+        return btnUpdteDataMhs;
+    }
+
+    public String getTxtAlamat() {
+        return txtAlamat.getText();
+    }
+
+    public String getTxtInputNama() {
+        return txtInputNama.getText();
+    }
+
+    public String getTxtInputNoTlp() {
+        return txtInputNoTlp.getText();
+    }
+
+    public String getTxtNIM() {
+        return txtNIM.getText();
+    }
+
+    public void addListener(ActionListener e){
+        btnMenuUtamaMhs.addActionListener(e);
+        btnUpdteDataMhs.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
+    
+    
+
 }

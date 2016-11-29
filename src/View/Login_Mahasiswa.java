@@ -64,7 +64,7 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
         txtPassMhs = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(685, 300));
 
         lblLoginMhs.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblLoginMhs.setText("Login");
@@ -86,13 +86,13 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(BtnChangeLoginToDosen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnChangeLoginToAdmin)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(288, 288, 288)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSbgMahasiswa)
+                    .addComponent(lblLoginMhs))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addContainerGap(245, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblUsername)
@@ -107,23 +107,22 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
                                 .addGap(66, 66, 66))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addComponent(txtPassMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(92, 92, 92))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSbgMahasiswa)
-                    .addComponent(lblLoginMhs))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtPassMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnChangeLoginToDosen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnChangeLoginToAdmin)
+                        .addGap(66, 66, 66)))
+                .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
                 .addComponent(lblLoginMhs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblSbgMahasiswa)
-                .addGap(19, 19, 19)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUnameMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsername))
@@ -133,11 +132,11 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
                     .addComponent(txtPassMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(BtnLoginMhs)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnChangeLoginToDosen)
                     .addComponent(BtnChangeLoginToAdmin))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -234,6 +233,14 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
         this.BtnChangeLoginToDosen = BtnChangeLoginToDosen;
     }
     
+    public void addListener(ActionListener e){
+        BtnLoginMhs.addActionListener(e);
+        BtnChangeLoginToAdmin.addActionListener(e);
+        BtnChangeLoginToDosen.addActionListener(e);        
+    }
     
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
 }
 

@@ -5,6 +5,13 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author USER
@@ -27,19 +34,22 @@ public class Input_Absen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        lblInputAbsenMhs = new javax.swing.JLabel();
+        tabKelas = new javax.swing.JTabbedPane();
+        panelKelas01 = new javax.swing.JPanel();
+        scrollPaneInputAbsenKls01 = new javax.swing.JScrollPane();
+        tabelKls01 = new javax.swing.JTable();
+        panelKelas02 = new javax.swing.JPanel();
+        scrollPaneInputAbsenKls02 = new javax.swing.JScrollPane();
+        tabelKls02 = new javax.swing.JTable();
+        btnMenuUtamaMhs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Input Absen Mahasiswa");
+        lblInputAbsenMhs.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblInputAbsenMhs.setText("Input Absen Mahasiswa");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKls01.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -56,61 +66,93 @@ public class Input_Absen extends javax.swing.JFrame {
                 "NIM", "NAMA", "KLS", "MATA KULIAH", "ABSEN"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        scrollPaneInputAbsenKls01.setViewportView(tabelKls01);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout panelKelas01Layout = new javax.swing.GroupLayout(panelKelas01);
+        panelKelas01.setLayout(panelKelas01Layout);
+        panelKelas01Layout.setHorizontalGroup(
+            panelKelas01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKelas01Layout.createSequentialGroup()
+                .addComponent(scrollPaneInputAbsenKls01, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelKelas01Layout.setVerticalGroup(
+            panelKelas01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelKelas01Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addComponent(scrollPaneInputAbsenKls01, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Kelas 01", jPanel1);
+        tabKelas.addTab("Kelas 01", panelKelas01);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+        tabelKls02.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "NIM", "NAMA", "KLS", "MATA KULIAH", "ABSEN"
+            }
+        ));
+        scrollPaneInputAbsenKls02.setViewportView(tabelKls02);
+
+        javax.swing.GroupLayout panelKelas02Layout = new javax.swing.GroupLayout(panelKelas02);
+        panelKelas02.setLayout(panelKelas02Layout);
+        panelKelas02Layout.setHorizontalGroup(
+            panelKelas02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelKelas02Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
+        panelKelas02Layout.setVerticalGroup(
+            panelKelas02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelKelas02Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Kelas 02", jPanel2);
+        tabKelas.addTab("Kelas 02", panelKelas02);
+
+        btnMenuUtamaMhs.setText("Menu Utama");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1)
+                .addGap(214, 214, 214)
+                .addComponent(lblInputAbsenMhs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabKelas)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnMenuUtamaMhs)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(lblInputAbsenMhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMenuUtamaMhs)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,11 +195,31 @@ public class Input_Absen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton btnMenuUtamaMhs;
+    private javax.swing.JLabel lblInputAbsenMhs;
+    private javax.swing.JPanel panelKelas01;
+    private javax.swing.JPanel panelKelas02;
+    private javax.swing.JScrollPane scrollPaneInputAbsenKls01;
+    private javax.swing.JScrollPane scrollPaneInputAbsenKls02;
+    private javax.swing.JTabbedPane tabKelas;
+    private javax.swing.JTable tabelKls01;
+    private javax.swing.JTable tabelKls02;
     // End of variables declaration//GEN-END:variables
+
+    public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
+        this.btnMenuUtamaMhs = btnMenuUtamaMhs;
+    }
+
+    public JButton getBtnMenuUtamaMhs() {
+        return btnMenuUtamaMhs;
+    }
+    
+    public void addListener(ActionListener e){
+        btnMenuUtamaMhs.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
+
 }

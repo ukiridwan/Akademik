@@ -202,4 +202,17 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         this.btnRegistrasiMhs = btnRegistrasiMhs;
     }
 
+    public void addListener(ActionListener e){
+        btnJadwalMhs.addActionListener(e);
+        btnLogOutMhs.addActionListener(e);
+        btnRegistrasiMhs.addActionListener(e);
+        btnEditDataMhs.addActionListener(e);
+        btnJadwalMhs.addActionListener(e);   
+        btnLogOutMhs.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
 }
+

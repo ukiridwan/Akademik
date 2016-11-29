@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
@@ -27,68 +32,73 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        lblMenuUtamaAdmin = new javax.swing.JLabel();
+        lblAdmin = new javax.swing.JLabel();
+        btnKnfrmPmbyrnMhs = new javax.swing.JButton();
+        btnPenjadwalanKls = new javax.swing.JButton();
+        btnLogOutAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Menu Utama");
+        lblMenuUtamaAdmin.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblMenuUtamaAdmin.setText("Menu Utama");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Administrator");
+        lblAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAdmin.setText("Administrator");
 
-        jButton1.setText("Konfirmasi Pembayaran Mahasiswa");
+        btnKnfrmPmbyrnMhs.setText("Konfirmasi Pembayaran Mahasiswa");
+        btnKnfrmPmbyrnMhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKnfrmPmbyrnMhsActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Penjadwalan Kelas");
+        btnPenjadwalanKls.setText("Penjadwalan Kelas");
 
-        jButton3.setText("Log Out");
+        btnLogOutAdmin.setText("Log Out");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(142, 142, 142)
-                                .addComponent(jLabel2)))
-                        .addGap(0, 90, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                .addGap(0, 604, Short.MAX_VALUE)
+                .addComponent(btnLogOutAdmin)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMenuUtamaAdmin)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnPenjadwalanKls, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnKnfrmPmbyrnMhs, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(lblAdmin)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(lblMenuUtamaAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(lblAdmin)
                 .addGap(44, 44, 44)
-                .addComponent(jButton1)
+                .addComponent(btnKnfrmPmbyrnMhs)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnPenjadwalanKls)
+                .addGap(40, 40, 40)
+                .addComponent(btnLogOutAdmin)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnKnfrmPmbyrnMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKnfrmPmbyrnMhsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKnfrmPmbyrnMhsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,10 +136,46 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnKnfrmPmbyrnMhs;
+    private javax.swing.JButton btnLogOutAdmin;
+    private javax.swing.JButton btnPenjadwalanKls;
+    private javax.swing.JLabel lblAdmin;
+    private javax.swing.JLabel lblMenuUtamaAdmin;
     // End of variables declaration//GEN-END:variables
+
+    public void setBtnKnfrmPmbyrnMhs(JButton btnKnfrmPmbyrnMhs) {
+        this.btnKnfrmPmbyrnMhs = btnKnfrmPmbyrnMhs;
+    }
+
+    public void setBtnLogOutAdmin(JButton btnLogOutAdmin) {
+        this.btnLogOutAdmin = btnLogOutAdmin;
+    }
+
+    public void setBtnPenjadwalanKls(JButton btnPenjadwalanKls) {
+        this.btnPenjadwalanKls = btnPenjadwalanKls;
+    }
+
+    public JButton getBtnKnfrmPmbyrnMhs() {
+        return btnKnfrmPmbyrnMhs;
+    }
+
+    public JButton getBtnLogOutAdmin() {
+        return btnLogOutAdmin;
+    }
+
+    public JButton getBtnPenjadwalanKls() {
+        return btnPenjadwalanKls;
+    }
+
+    public void addListener(ActionListener e){
+        btnKnfrmPmbyrnMhs.addActionListener(e);
+        btnLogOutAdmin.addActionListener(e);
+        btnPenjadwalanKls.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
+
+
 }

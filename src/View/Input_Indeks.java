@@ -5,6 +5,12 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
@@ -27,84 +33,93 @@ public class Input_Indeks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lblInputIndeks = new javax.swing.JLabel();
+        lblKetIndeks = new javax.swing.JLabel();
+        txtIndeksMhs = new javax.swing.JTextField();
+        lblIndeksMhs = new javax.swing.JLabel();
+        btnSubmitIndeks = new javax.swing.JButton();
+        btnMenuUtamaDosen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Input Indeks");
+        lblInputIndeks.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblInputIndeks.setText("Input Indeks");
 
-        jLabel2.setText("Ket. Indeks yang dapat dimasukkan adalah A/B/C/D/E");
+        lblKetIndeks.setText("Ket. Indeks yang dapat dimasukkan adalah A/B/C/D/E");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtIndeksMhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtIndeksMhsActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Indeks Mahasiswa");
+        lblIndeksMhs.setText("Indeks Mahasiswa");
 
-        jButton1.setText("Submit");
+        btnSubmitIndeks.setText("Submit");
 
-        jButton2.setText("Menu Utama");
+        btnMenuUtamaDosen.setText("Menu Utama");
+        btnMenuUtamaDosen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuUtamaDosenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jButton1)))
-                .addContainerGap(69, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))
+                        .addComponent(btnMenuUtamaDosen)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addContainerGap())))
+                        .addComponent(lblIndeksMhs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIndeksMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(229, 229, 229))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(306, 306, 306)
+                .addComponent(btnSubmitIndeks)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(219, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(lblInputIndeks))
+                    .addComponent(lblKetIndeks))
+                .addGap(208, 208, 208))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
+                .addGap(59, 59, 59)
+                .addComponent(lblInputIndeks)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(70, 70, 70)
+                .addComponent(lblKetIndeks)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(txtIndeksMhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIndeksMhs))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnSubmitIndeks)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(btnMenuUtamaDosen)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtIndeksMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIndeksMhsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtIndeksMhsActionPerformed
+
+    private void btnMenuUtamaDosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuUtamaDosenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuUtamaDosenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,11 +157,47 @@ public class Input_Indeks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnMenuUtamaDosen;
+    private javax.swing.JButton btnSubmitIndeks;
+    private javax.swing.JLabel lblIndeksMhs;
+    private javax.swing.JLabel lblInputIndeks;
+    private javax.swing.JLabel lblKetIndeks;
+    private javax.swing.JTextField txtIndeksMhs;
     // End of variables declaration//GEN-END:variables
+
+    public void setBtnMenuUtamaDosen(JButton btnMenuUtamaDosen) {
+        this.btnMenuUtamaDosen = btnMenuUtamaDosen;
+    }
+
+    public void setBtnSubmitIndeks(JButton btnSubmitIndeks) {
+        this.btnSubmitIndeks = btnSubmitIndeks;
+    }
+
+    public void setTxtIndeksMhs(JTextField txtIndeksMhs) {
+        this.txtIndeksMhs = txtIndeksMhs;
+    }
+
+    public JButton getBtnMenuUtamaDosen() {
+        return btnMenuUtamaDosen;
+    }
+
+    public JButton getBtnSubmitIndeks() {
+        return btnSubmitIndeks;
+    }
+
+    public String getTxtIndeksMhs() {
+        return txtIndeksMhs.getText();
+    }
+    
+    public void addListener(ActionListener e){
+        btnMenuUtamaDosen.addActionListener(e);
+        btnSubmitIndeks.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
+
+   
+
 }

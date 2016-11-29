@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
@@ -27,35 +32,40 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        lblMenuUtamaDosen = new javax.swing.JLabel();
+        lblDosen = new javax.swing.JLabel();
+        btnInputAbsen = new javax.swing.JButton();
+        btnInputIndeks = new javax.swing.JButton();
+        btnUpdateStatusMhs = new javax.swing.JButton();
+        btnLihatJdwlKls = new javax.swing.JButton();
+        btnLihatDataMhs = new javax.swing.JButton();
+        btnLogOutDosen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(685, 300));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Menu Utama");
+        lblMenuUtamaDosen.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblMenuUtamaDosen.setText("Menu Utama");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Dosen");
+        lblDosen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblDosen.setText("Dosen");
 
-        jButton1.setText("Input Absen");
+        btnInputAbsen.setText("Input Absen");
+        btnInputAbsen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInputAbsenActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Input Indeks");
+        btnInputIndeks.setText("Input Indeks");
 
-        jButton3.setText("Update Status Mahasiswa");
+        btnUpdateStatusMhs.setText("Update Status Mahasiswa");
 
-        jButton4.setText("Lihat Jadwal Kelas");
+        btnLihatJdwlKls.setText("Lihat Jadwal Kelas");
 
-        jButton5.setText("Lihat Data Mahasiswa");
+        btnLihatDataMhs.setText("Lihat Data Mahasiswa");
 
-        jButton6.setText("Log Out");
+        btnLogOutDosen.setText("Log Out");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,7 +73,7 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(btnLogOutDosen)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(187, 187, 187)
@@ -71,21 +81,21 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lblMenuUtamaDosen)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(75, 75, 75)
-                                .addComponent(jLabel2))))
+                                .addComponent(lblDosen))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnInputAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInputIndeks, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnLihatDataMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLihatJdwlKls, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(jButton3)
+                        .addComponent(btnUpdateStatusMhs)
                         .addGap(70, 70, 70)))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
@@ -93,26 +103,30 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addComponent(lblMenuUtamaDosen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(lblDosen)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4))
+                    .addComponent(btnInputAbsen)
+                    .addComponent(btnLihatJdwlKls))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5))
+                    .addComponent(btnInputIndeks)
+                    .addComponent(btnLihatDataMhs))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnUpdateStatusMhs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(btnLogOutDosen)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInputAbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInputAbsenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInputAbsenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,13 +165,75 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnInputAbsen;
+    private javax.swing.JButton btnInputIndeks;
+    private javax.swing.JButton btnLihatDataMhs;
+    private javax.swing.JButton btnLihatJdwlKls;
+    private javax.swing.JButton btnLogOutDosen;
+    private javax.swing.JButton btnUpdateStatusMhs;
+    private javax.swing.JLabel lblDosen;
+    private javax.swing.JLabel lblMenuUtamaDosen;
     // End of variables declaration//GEN-END:variables
+
+    public void setBtnInputAbsen(JButton btnInputAbsen) {
+        this.btnInputAbsen = btnInputAbsen;
+    }
+
+    public void setBtnInputIndeks(JButton btnInputIndeks) {
+        this.btnInputIndeks = btnInputIndeks;
+    }
+
+    public void setBtnLihatDataMhs(JButton btnLihatDataMhs) {
+        this.btnLihatDataMhs = btnLihatDataMhs;
+    }
+
+    public void setBtnLihatJdwlKls(JButton btnLihatJdwlKls) {
+        this.btnLihatJdwlKls = btnLihatJdwlKls;
+    }
+
+    public void setBtnLogOutDosen(JButton btnLogOutDosen) {
+        this.btnLogOutDosen = btnLogOutDosen;
+    }
+
+    public void setBtnUpdateStatusMhs(JButton btnUpdateStatusMhs) {
+        this.btnUpdateStatusMhs = btnUpdateStatusMhs;
+    }
+
+    public JButton getBtnInputAbsen() {
+        return btnInputAbsen;
+    }
+
+    public JButton getBtnInputIndeks() {
+        return btnInputIndeks;
+    }
+
+    public JButton getBtnLihatDataMhs() {
+        return btnLihatDataMhs;
+    }
+
+    public JButton getBtnLihatJdwlKls() {
+        return btnLihatJdwlKls;
+    }
+
+    public JButton getBtnLogOutDosen() {
+        return btnLogOutDosen;
+    }
+
+    public JButton getBtnUpdateStatusMhs() {
+        return btnUpdateStatusMhs;
+    }
+
+    public void addListener(ActionListener e){
+        btnInputAbsen.addActionListener(e);
+        btnInputIndeks.addActionListener(e);
+        btnLihatDataMhs.addActionListener(e);
+        btnLihatJdwlKls.addActionListener(e);
+        btnLogOutDosen.addActionListener(e);
+        btnUpdateStatusMhs.addActionListener(e);
+    }
+    
+    public void showMessage(Component c, String s){
+            JOptionPane.showMessageDialog(c,s);
+    };
+
 }

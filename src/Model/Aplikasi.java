@@ -8,6 +8,8 @@ package Model;
 import database.Database;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Aplikasi {
         this.dataDosen = new ArrayList<>();
         this.dataMhs = new ArrayList<>();
         this.dataNilai = new ArrayList<>();
+        this.con = new Database();
         try{
             con.connect();
         }catch(SQLException ex){
