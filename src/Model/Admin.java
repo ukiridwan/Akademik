@@ -15,10 +15,10 @@ public class Admin {
     private String nip;
     private String namaAdmin;
     private String alamatAdmin;;
-    private String telpAdmin;
+    private int telpAdmin;
     private String passAdmin;
 
-    public Admin(String namaAdmin, String nip, String alamatAdmin, String telpAdmin, String passAdmin) {
+    public Admin(String namaAdmin, String nip, String alamatAdmin, int telpAdmin, String passAdmin) {
         this.namaAdmin = namaAdmin;
         this.nip = nip;
         this.alamatAdmin = alamatAdmin;
@@ -50,11 +50,11 @@ public class Admin {
         this.alamatAdmin = alamatAdmin;
     }
 
-    public String getTelpAdmin() {
+    public int getTelpAdmin() {
         return telpAdmin;
     }
 
-    public void setTelpAdmin(String telpAdmin) {
+    public void setTelpAdmin(int telpAdmin) {
         this.telpAdmin = telpAdmin;
     }
 

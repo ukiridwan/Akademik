@@ -5,6 +5,7 @@
  */
 package database;
 
+import Model.Admin;
 import Model.Dosen;
 import Model.Mahasiswa;
 import java.sql.*;
@@ -84,5 +85,72 @@ public class Database {
             dosen = new Dosen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
         }
         return dosen;
+    }
+    
+    public void updateDosen(Dosen dosen) throws SQLException{
+        String query = "UPDATE dosen SET alamatDosen ='"
+                        +dosen.getAlamatDosen()+"', telpDosen='"
+                        +dosen.getTelpDosen()+"', passDosen='"
+                        +dosen.getPassDosen()+"' WHERE nik ='"
+                        +dosen.getNik()+"'";
+        st.executeUpdate(query);
+    }
+    
+    public String[] getListNikDosen() throws SQLException{
+        ArrayList<String> listnik = new ArrayList<>();
+        String query = "SELECT nik FROM dosen";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+            listnik.add(rs.getString(2));
+        }
+        return listnik.toArray(new String[0]);
+    }
+    
+    public void delDosen(String nik) throws SQLException{
+        String query = "DELETE FROM dosen where nik='"+nik+"'";
+        st.execute(query);
+    }
+    
+    //Admin
+        public void saveAdmin(Admin admin) throws SQLException{
+        String query = "INSERT INTO admin(namaAdmin, nip, alamatAdmin, telpAdmin, passAdmin) VALUES ('"
+                        +admin.getNamaAdmin()+"','"+admin.getNip()+"','"+admin.getAlamatAdmin()+"','"
+                        +admin.getTelpAdmin()+"','"+admin.getPassAdmin()+"')";
+        st.execute(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = st.getGeneratedKeys();
+    }
+    
+    public Admin getAdmin(String nip) throws SQLException{
+        Admin admin = null;
+        String query = "SELECT * FROM admin WHERE nip = '"+nip+"'";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+            admin = new Admin(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+        }
+        return admin;
+    }
+    
+    public void updateAdmin(Admin admin) throws SQLException{
+        String query = "UPDATE admin SET alamatAdmin ='"
+                        +admin.getAlamatAdmin()+"', telpAdmin='"
+                        +admin.getTelpAdmin()+"', passAdmin='"
+                        +admin.getPassAdmin()+"' WHERE nik ='"
+                        +admin.getNip()+"'";
+        st.executeUpdate(query);
+    }
+    
+    public String[] getListNipAdmin() throws SQLException{
+        ArrayList<String> listnip = new ArrayList<>();
+        String query = "SELECT nip FROM admin";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+            listnip.add(rs.getString(2));
+        }
+        return listnip.toArray(new String[0]);
+    }
+    
+    public void delAdmin(String nip) throws SQLException{
+        String query = "DELETE FROM admin where nip='"+nip+"'";
+        st.execute(query);
     }
 }
