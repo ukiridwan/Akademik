@@ -39,6 +39,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private String query;
     private ResultSet rs;
     private Mahasiswa mhs;
+    private Admin admin;
     private String tmpNim;
     private String tmpPw;
     private String tmpKelas;
@@ -115,6 +116,17 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         //registrasi mahasiswa
         else if(source.equals(regismhs.getBtnInputMatKul())){
             
+        }
+        //login admin
+        else if(source.equals(lm.getBtnChangeLoginToAdmin())){
+            la.setVisible(true);
+            lm.dispose();
+        }else if(source.equals(la.getBtnLoginAdmin())){
+            String user = la.getTxtUnameAdmin();
+            String pw = la.getTxtPassAdmin();
+            tmpNim = user;
+            tmpPw = pw;
+            admin = model
         }
     }
 
