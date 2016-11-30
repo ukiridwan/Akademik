@@ -68,6 +68,18 @@ public class Database {
         st.execute(query);
     }
     
+    public ArrayList<Mahasiswa> getAllMhs() throws SQLException{
+        ArrayList<Mahasiswa> dataMhs = new ArrayList<>();
+        
+        String query = "SELECT * FROM mahasiswa";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Mahasiswa mhs = new Mahasiswa(rs.getString("namaMhs"), rs.getString("nim"), rs.getString("kelas"), rs.getString("alamatMhs"), rs.getInt("telpMhs"), rs.getString("passMhs"));
+              dataMhs.add(mhs);
+        }
+        return dataMhs;  
+    }
+    
     //Dosen
     public void saveDosen(Dosen dosen) throws SQLException{
         String query = "INSERT INTO dosen(namaDosen, nik, alamatDosen, telpDosen, passDosen) VALUES ('"
@@ -111,6 +123,18 @@ public class Database {
         st.execute(query);
     }
     
+    public ArrayList<Dosen> getAllDosen() throws SQLException{
+        ArrayList<Dosen> dataDosen = new ArrayList<>();
+        
+        String query = "SELECT * FROM dosen";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Dosen dosen = new Dosen(rs.getString("namaDosen"), rs.getString("nik"), rs.getString("alamatDosen"), rs.getInt("telpDosen"), rs.getString("passDosen"));
+              dataDosen.add(dosen);
+        }
+        return dataDosen;  
+    }
+    
     //Admin
         public void saveAdmin(Admin admin) throws SQLException{
         String query = "INSERT INTO admin(namaAdmin, nip, alamatAdmin, telpAdmin, passAdmin) VALUES ('"
@@ -152,5 +176,17 @@ public class Database {
     public void delAdmin(String nip) throws SQLException{
         String query = "DELETE FROM admin where nip='"+nip+"'";
         st.execute(query);
+    }
+    
+    public ArrayList<Admin> getAllAdmin() throws SQLException{
+        ArrayList<Admin> dataAdmin = new ArrayList<>();
+        
+        String query = "SELECT * FROM admin";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Admin admin = new Admin(rs.getString("namaAdmin"), rs.getString("nip"), rs.getString("alamatAdmin"), rs.getInt("telpAdmin"), rs.getString("passAdmin"));
+              dataAdmin.add(admin);
+        }
+        return dataAdmin;  
     }
 }

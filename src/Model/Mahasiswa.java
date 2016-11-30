@@ -27,6 +27,10 @@ public class Mahasiswa {
         this.passMhs = passMhs;
         this.token = token;
     }
+
+    public Mahasiswa(String string, String string0, String string1, String string2, int aInt, String string3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public String getNamaMhs() {
         return namaMhs;
