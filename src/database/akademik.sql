@@ -64,6 +64,23 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
   `token` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mahasiswa`
+--
+
+CREATE TABLE IF NOT EXISTS `mahasiswa` (
+  `namaMhs` varchar(20) NOT NULL,
+  `nim` varchar(10) NOT NULL,
+  `kelas` varchar(10) DEFAULT NULL,
+  `alamatMhs` varchar(50) NOT NULL,
+  `telpMhs` int(12) NOT NULL,
+  `passMhs` varchar(15) NOT NULL,
+  `token` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --

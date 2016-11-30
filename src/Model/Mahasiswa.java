@@ -10,9 +10,8 @@ package Model;
  * @author Toms
  */
 public class Mahasiswa {
+    private int nim;
     private String namaMhs;
-    private String nim;
-    private String token;
     private String kelas;
     private String alamatMhs;
     private String telpMhs;
@@ -21,20 +20,15 @@ public class Mahasiswa {
     public Mahasiswa() {
     }
 
-    public Mahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token) {
-        this.namaMhs = namaMhs;
+    public Mahasiswa(int nim, String namaMhs, String kelas, String alamatMhs, String telpMhs, String passMhs) {
         this.nim = nim;
+        this.namaMhs = namaMhs;
         this.kelas = kelas;
         this.alamatMhs = alamatMhs;
         this.telpMhs = telpMhs;
         this.passMhs = passMhs;
-        this.token = token;
     }
 
-    public Mahasiswa(String string, String string0, String string1, String string2, int aInt, String string3) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     public String getNamaMhs() {
         return namaMhs;
     }
@@ -43,20 +37,12 @@ public class Mahasiswa {
         this.namaMhs = namaMhs;
     }
 
-    public String getNim() {
+    public int getNim() {
         return nim;
     }
 
-    public void setNim(String nim) {
+    public void setNim(int nim) {
         this.nim = nim;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public String getKelas() {

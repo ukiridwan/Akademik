@@ -20,6 +20,8 @@ public class Aplikasi {
     private ArrayList<Dosen> dataDosen;
     private ArrayList<Mahasiswa> dataMhs;
     private ArrayList<Nilai> dataNilai;
+    private ArrayList<Registrasi> dataRegist;
+    private ArrayList<MataKuliah> dataMatkul;
     private Database con;
     private int index = -1;
 
@@ -28,6 +30,8 @@ public class Aplikasi {
         this.dataDosen = new ArrayList<>();
         this.dataMhs = new ArrayList<>();
         this.dataNilai = new ArrayList<>();
+        this.dataRegist = new ArrayList<>();
+        this.dataMatkul = new ArrayList<>();
         this.con = new Database();
         try{
             con.connect();
@@ -37,8 +41,8 @@ public class Aplikasi {
     }
     
     //Mahasiswa
-    public String createMhs(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token){
-        Mahasiswa mhs = new Mahasiswa(namaMhs, nim, kelas, alamatMhs, telpMhs, passMhs, token);
+    public int createMhs(int nim, String namaMhs, String kelas, String alamatMhs, String telpMhs, String passMhs){
+        Mahasiswa mhs = new Mahasiswa(nim, namaMhs, kelas, alamatMhs, telpMhs, passMhs);
         try{
             dataMhs.add(mhs);
             con.saveMhs(mhs);
@@ -56,7 +60,7 @@ public class Aplikasi {
         }
     }
     
-    public Mahasiswa getMhs(String nim) throws SQLException{
+    public Mahasiswa getMhs(int nim) throws SQLException{
         Mahasiswa mhs = con.getMhs(nim);
         return mhs;
     }
@@ -65,7 +69,7 @@ public class Aplikasi {
         return con.getListNimMhs();
     }
     
-    public void delMhs(String nim) throws SQLException{
+    public void delMhs(int nim) throws SQLException{
         con.delMhs(nim);
     }
     
@@ -74,8 +78,8 @@ public class Aplikasi {
     }
     
     //Dosen
-    public String createDosen(String namaDosen, String nik, String alamatDosen, int telpDosen, String passDosen){
-        Dosen dosen = new Dosen(namaDosen, nik, alamatDosen, telpDosen, passDosen);
+    public int createDosen(int nik, String namaDosen, String alamatDosen, String telpDosen, String passDosen){
+        Dosen dosen = new Dosen(nik, namaDosen, alamatDosen, telpDosen, passDosen);
         try{
             dataDosen.add(dosen);
             con.saveDosen(dosen);
@@ -93,7 +97,7 @@ public class Aplikasi {
         }
     }
     
-    public Dosen getDosen(String nik) throws SQLException{
+    public Dosen getDosen(int nik) throws SQLException{
         Dosen dosen = con.getDosen(nik);
         return dosen;
     }
@@ -102,7 +106,7 @@ public class Aplikasi {
         return con.getListNikDosen();
     }
     
-    public void delDosen(String nik) throws SQLException{
+    public void delDosen(int nik) throws SQLException{
         con.delDosen(nik);
     }
     
@@ -111,8 +115,8 @@ public class Aplikasi {
     }
     
     //Admin
-    public String createAdmin(String namaAdmin, String nip, String alamatAdmin, int telpAdmin, String passAdmin){
-        Admin admin = new Admin(namaAdmin, nip, alamatAdmin, telpAdmin, passAdmin);
+    public int createAdmin(int nip, String namaAdmin, String alamatAdmin, String telpAdmin, String passAdmin){
+        Admin admin = new Admin(nip, namaAdmin, alamatAdmin, telpAdmin, passAdmin);
         try{
             dataAdmin.add(admin);
             con.saveAdmin(admin);
@@ -130,7 +134,7 @@ public class Aplikasi {
         }
     }
     
-    public Admin getAdmin(String nip) throws SQLException{
+    public Admin getAdmin(int nip) throws SQLException{
         Admin admin = con.getAdmin(nip);
         return admin;
     }
@@ -139,7 +143,7 @@ public class Aplikasi {
         return con.getListNipAdmin();
     }
     
-    public void delAdmin(String nip) throws SQLException{
+    public void delAdmin(int nip) throws SQLException{
         con.delAdmin(nip);
     }
     
@@ -147,7 +151,60 @@ public class Aplikasi {
         return con.getAllAdmin();
     }
     
-    public void inputToken(String nim, String token) throws SQLException{
-        con.inputToken(nim, token);
+    //Registrasi
+    public int inputToken(int nim, String token){
+        Registrasi regist = new Registrasi(nim, token);
+        try{
+            dataRegist.add(regist);
+            con.saveToken(regist);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return regist.getIdRegist();
+    }
+    
+    public void updateRegistNip(Registrasi regist){
+        try{
+            con.updateRegistNip(regist);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void delRegist(int idRegist) throws SQLException{
+        con.delRegist(idRegist);
+    }
+    
+    public ArrayList<Registrasi> getAllRegist() throws SQLException{
+        return con.getAllRegist();
+    }
+    
+    
+    //Mata Kuliah
+    public int createMatkul(String namaMatkul, int sks){
+        MataKuliah matkul = new MataKuliah(namaMatkul, sks);
+        try{
+            dataMatkul.add(matkul);
+            con.saveMatkul(matkul);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return matkul.getIdMatkul();
+    }
+    
+    public void updateMatkul(MataKuliah matkul){
+        try{
+            con.updateMatkul(matkul);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void delMatkul(int idMatkul) throws SQLException{
+        con.delRegist(idMatkul);
+    }
+    
+    public ArrayList<MataKuliah> getAllMatkul() throws SQLException{
+        return con.getAllMatkul();
     }
 }
