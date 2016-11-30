@@ -16,6 +16,9 @@ public class Dosen {
     private int telpDosen;
     private String passDosen;
 
+    public Dosen() {
+    }
+
     public Dosen(String namaDosen, String nik, String alamatDosen, int telpDosen, String passDosen) {
         this.namaDosen = namaDosen;
         this.nik = nik;

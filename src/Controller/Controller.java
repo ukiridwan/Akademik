@@ -30,19 +30,26 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private Login_Dosen ld;
     private Login_Admin la;
     private MenuUtama_Mahasiswa menumhs;
+    private MenuUtama_Admin menuadmin;
+    private MenuUtama_Dosen menudosen;
     private EditData_Mahasiswa editmhs;
     private Jadwal jadwaldsn;
     private Lihat_Jadwal_Kelas jadwalmhs; 
     private Registrasi regismhs;
+    private Input_NIMToken inputnimtoken;
+    private Input_Token inputtoken;
+    private Penjadwalan_Kelas pk;
     private Database db;
     private Statement st;
     private String query;
     private ResultSet rs;
     private Mahasiswa mhs;
     private Admin admin;
+    private Dosen dosen;
     private String tmpNim;
     private String tmpPw;
     private String tmpKelas;
+    private String tmpToken;
     
     public Controller(Aplikasi model) {
         this.model = model;
@@ -52,7 +59,11 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         jadwalmhs = new Lihat_Jadwal_Kelas();
         regismhs = new Registrasi();
         menumhs = new MenuUtama_Mahasiswa();
+        menuadmin = new MenuUtama_Admin();
+        menudosen = new MenuUtama_Dosen();
         editmhs = new EditData_Mahasiswa();
+        inputnimtoken = new Input_NIMToken();
+        inputtoken = new Input_Token();
         lm.setVisible(true);
         lm.addListener(this);
     }
@@ -67,7 +78,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpNim = user;
             tmpPw = pw;
             try {
-                mhs = model.getMahasiswa(user);
+                mhs = model.getMhs(user);
                 tmpKelas = mhs.getKelas();
                 if(user.equals(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
                     lm.showMessage(null, "Login Berhasil");
@@ -126,7 +137,80 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             String pw = la.getTxtPassAdmin();
             tmpNim = user;
             tmpPw = pw;
-            admin = model
+            try {
+                admin = new Admin();
+                admin = model.getAdmin(user);
+                if(user.equals(admin.getNip()) && pw.equals(admin.getPassAdmin())){
+                    la.showMessage(null, "Loing berhasil");
+                    menuadmin.setVisible(true);
+                    la.dispose();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(menuadmin.getBtnLogOutAdmin())){
+            lm.setVisible(true);
+            menuadmin.dispose();
+        }else if(source.equals(menuadmin.getBtnKnfrmPmbyrnMhs())){
+            inputnimtoken.setVisible(true);
+            menuadmin.dispose();
+        }else if(source.equals(inputnimtoken.getBtnCariNimMhs())){
+            tmpNim = inputnimtoken.getTxtInputNIMMhs();
+            try {
+                mhs = model.getMhs(tmpNim);
+                if(mhs != null){
+                    inputnimtoken.showMessage(null, "NIM ditemukan");
+                    inputtoken.setVisible(true);
+                    inputnimtoken.dispose();
+                }else{
+                    inputnimtoken.showMessage(null, "NIM tidak terdaftar");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(inputnimtoken.getBtnMenuUtamaMhs())){
+            menuadmin.setVisible(true);
+            inputnimtoken.dispose();
+        }else if(source.equals(inputtoken.getBtnSubmitToken())){
+            tmpToken = inputtoken.getTxtInputToken();
+            try {
+                model.inputToken(tmpNim, tmpToken);
+                inputtoken.showMessage(null, "Token berhasil diinputkan");
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
+            menuadmin.setVisible(true);
+            inputtoken.dispose();
+        }else if(source.equals(menuadmin.getBtnPenjadwalanKls())){
+            pk.setVisible(true);
+            menuadmin.dispose();
+        }
+        //login dosen
+        else if(source.equals(lm.getBtnChangeLoginToDosen())){
+            ld.setVisible(true);
+            lm.dispose();
+        }else if(source.equals(ld.getBtnLoginDosen())){
+            String user = ld.getTxtUnameDosen();
+            String pw = ld.getTxtPassDosen();
+            dosen = new Dosen();
+            try {
+                dosen = model.getDosen(user);
+                if(user.equals(dosen.getNik()) && pw.equals(dosen.getPassDosen())){
+                    ld.showMessage(null, "Login berhasil");
+                    menudosen.setVisible(true);
+                    ld.dispose();
+                }else{
+                    ld.showMessage(null, "Username atau password salah!");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(menudosen.getBtnLogOutDosen())){
+            lm.setVisible(true);
+            menudosen.dispose();
+        }else if(source.equals(menudosen.getBtnInputIndeks())){
+            
         }
     }
 

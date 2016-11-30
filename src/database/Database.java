@@ -189,4 +189,9 @@ public class Database {
         }
         return dataAdmin;  
     }
+    
+    public void inputToken(String nim, String token) throws SQLException{
+        String query = "UPDATE mahasiswa SET token ='"+token+"', WHERE nim ='"+nim+"'";
+        st.executeUpdate(query);
+    }
 }

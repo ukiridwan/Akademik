@@ -18,6 +18,9 @@ public class Admin {
     private int telpAdmin;
     private String passAdmin;
 
+    public Admin() {
+    }
+
     public Admin(String namaAdmin, String nip, String alamatAdmin, int telpAdmin, String passAdmin) {
         this.namaAdmin = namaAdmin;
         this.nip = nip;

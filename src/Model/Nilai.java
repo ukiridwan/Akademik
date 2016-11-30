@@ -15,6 +15,9 @@ public class Nilai {
     private double tugas;
     private String indeks;
 
+    public Nilai() {
+    }
+
     public Nilai(double uts, double uas, double tugas) {
         this.uts = uts;
         this.uas = uas;

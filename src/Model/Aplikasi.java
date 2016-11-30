@@ -146,4 +146,8 @@ public class Aplikasi {
     public ArrayList<Admin> getAllAdmin() throws SQLException{
         return con.getAllAdmin();
     }
+    
+    public void inputToken(String nim, String token) throws SQLException{
+        con.inputToken(nim, token);
+    }
 }

@@ -18,6 +18,9 @@ public class Mahasiswa {
     private String telpMhs;
     private String passMhs;
 
+    public Mahasiswa() {
+    }
+
     public Mahasiswa(String namaMhs, String nim, String kelas, String alamatMhs, String telpMhs, String passMhs, String token) {
         this.namaMhs = namaMhs;
         this.nim = nim;
