@@ -22,6 +22,12 @@ public class Absensi {
         this.absen = absen;
     }
 
+    public Absensi(int idJadwal, int nim, String absen) {
+        this.idJadwal = idJadwal;
+        this.nim = nim;
+        this.absen = absen;
+    }
+
     public int getIdAbsensi() {
         return idAbsensi;
     }

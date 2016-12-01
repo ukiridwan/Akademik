@@ -22,6 +22,12 @@ public class Jadwal {
         this.ruang = ruang;
     }
 
+    public Jadwal(int idMatkul, int nik, String ruang) {
+        this.idMatkul = idMatkul;
+        this.nik = nik;
+        this.ruang = ruang;
+    }
+
     public int getIdJadwal() {
         return idJadwal;
     }

@@ -10,6 +10,9 @@ import Model.Dosen;
 import Model.Mahasiswa;
 import Model.Registrasi;
 import Model.MataKuliah;
+import Model.Indeks;
+import Model.Jadwal;
+import Model.Absensi;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -253,5 +256,98 @@ public class Database {
               dataMatkul.add(matkul);
         }
         return dataMatkul;  
+    }
+    
+    //Indeks
+    public void saveIndeks(Indeks indeks) throws SQLException{
+        String query = "INSERT INTO indeks(idIndeks, idMatkul, nim, indeksnilai) VALUES (NULL,'"+indeks.getIdMatkul()+"','"+indeks.getNim()+"','"+indeks.getIndeksNilai()+"')";
+        st.execute(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = st.getGeneratedKeys();
+    }
+    
+    public void updateIndeks(Indeks indeks) throws SQLException{
+        String query = "UPDATE indeks SET indeksnilai ='"
+                        +indeks.getIndeksNilai()+"' WHERE idIndeks ='"
+                        +indeks.getIdIndeks()+"'";
+        st.executeUpdate(query);
+    }
+    
+    public void delIndeks(int idIndeks) throws SQLException{
+        String query = "DELETE FROM indeks where idIndeks='"+idIndeks+"'";
+        st.execute(query);
+    }
+    
+    public ArrayList<Indeks> getAllIndeks(int nim) throws SQLException{
+        ArrayList<Indeks> dataIndeks = new ArrayList<>();
+        
+        String query = "SELECT * FROM indeks WHERE nim ='"+nim+"'";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Indeks indeks = new Indeks(rs.getInt("idIndeks"), rs.getInt("idMatkul"), rs.getInt("nim"), rs.getString("indeksnilai"));
+              dataIndeks.add(indeks);
+        }
+        return dataIndeks;  
+    }
+    
+    //Jadwal
+    public void saveJadwal(Jadwal jadwal) throws SQLException{
+        String query = "INSERT INTO jadwal(idJadwal, idMatkul, nik, ruang) VALUES (NULL,'"+jadwal.getIdMatkul()+"','"+jadwal.getNik()+"','"+jadwal.getRuang()+"')";
+        st.execute(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = st.getGeneratedKeys();
+    }
+    
+    public void updateJadwal(Jadwal jadwal) throws SQLException{
+        String query = "UPDATE jadwal SET nik ='"
+                        +jadwal.getNik()+"', ruang ='"+jadwal.getRuang()+"' WHERE idJadwal ='"
+                        +jadwal.getIdJadwal()+"'";
+        st.executeUpdate(query);
+    }
+    
+    public void delJadwal(int idJadwal) throws SQLException{
+        String query = "DELETE FROM jadwal where idJadwal='"+idJadwal+"'";
+        st.execute(query);
+    }
+    
+    public ArrayList<Jadwal> getAllJadwal() throws SQLException{
+        ArrayList<Jadwal> dataJadwal = new ArrayList<>();
+        
+        String query = "SELECT * FROM jadwal";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Jadwal jadwal = new Jadwal(rs.getInt("idJadwal"), rs.getInt("idMatkul"), rs.getInt("nik"), rs.getString("ruang"));
+              dataJadwal.add(jadwal);
+        }
+        return dataJadwal;  
+    }
+    
+    //Absensi
+    public void saveAbsensi(Absensi absensi) throws SQLException{
+        String query = "INSERT INTO absensi(idAbsensi, idJadwal, nim, absen) VALUES (NULL,'"+absensi.getIdJadwal()+"','"+absensi.getNim()+"','"+absensi.getAbsen()+"')";
+        st.execute(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = st.getGeneratedKeys();
+    }
+    
+    public void updateAbsensi(Absensi absensi) throws SQLException{
+        String query = "UPDATE absensi SET absen ='"
+                        +absensi.getAbsen()+"' WHERE idAbsensi ='"
+                        +absensi.getIdAbsensi()+"'";
+        st.executeUpdate(query);
+    }
+    
+    public void delAbsensi(int idAbsensi) throws SQLException{
+        String query = "DELETE FROM absensi where idAbsensi='"+idAbsensi+"'";
+        st.execute(query);
+    }
+    
+    public ArrayList<Absensi> getAllAbsensi() throws SQLException{
+        ArrayList<Absensi> dataAbsensi = new ArrayList<>();
+        
+        String query = "SELECT * FROM absensi";
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+              Absensi absensi = new Absensi(rs.getInt("idAbsensi"), rs.getInt("idJadwal"), rs.getInt("nim"), rs.getString("absen"));
+              dataAbsensi.add(absensi);
+        }
+        return dataAbsensi;  
     }
 }
