@@ -10,28 +10,28 @@ package Model;
  * @author Toms
  */
 public class Dosen {
-    private String nik;
+    private int nik;
     private String namaDosen;
     private String alamatDosen;
-    private int telpDosen;
+    private String telpDosen;
     private String passDosen;
 
     public Dosen() {
     }
 
-    public Dosen(String namaDosen, String nik, String alamatDosen, int telpDosen, String passDosen) {
-        this.namaDosen = namaDosen;
+    public Dosen(int nik, String namaDosen, String alamatDosen, String telpDosen, String passDosen) {
         this.nik = nik;
+        this.namaDosen = namaDosen;
         this.alamatDosen = alamatDosen;
         this.telpDosen = telpDosen;
         this.passDosen = passDosen;
     }
 
-    public String getNik() {
+    public int getNik() {
         return nik;
     }
 
-    public void setNik(String nik) {
+    public void setNik(int nik) {
         this.nik = nik;
     }
 
@@ -51,11 +51,11 @@ public class Dosen {
         this.alamatDosen = alamatDosen;
     }
 
-    public int getTelpDosen() {
+    public String getTelpDosen() {
         return telpDosen;
     }
 
-    public void setTelpDosen(int telpDosen) {
+    public void setTelpDosen(String telpDosen) {
         this.telpDosen = telpDosen;
     }
 

@@ -12,28 +12,28 @@ import Controller.*;
  * @author Toms
  */
 public class Admin {
-    private String nip;
+    private int nip;
     private String namaAdmin;
     private String alamatAdmin;;
-    private int telpAdmin;
+    private String telpAdmin;
     private String passAdmin;
 
     public Admin() {
     }
 
-    public Admin(String namaAdmin, String nip, String alamatAdmin, int telpAdmin, String passAdmin) {
-        this.namaAdmin = namaAdmin;
+    public Admin(int nip, String namaAdmin, String alamatAdmin, String telpAdmin, String passAdmin) {
         this.nip = nip;
+        this.namaAdmin = namaAdmin;
         this.alamatAdmin = alamatAdmin;
         this.telpAdmin = telpAdmin;
         this.passAdmin = passAdmin;
     }
 
-    public String getNip() {
+    public int getNip() {
         return nip;
     }
 
-    public void setNip(String nip) {
+    public void setNip(int nip) {
         this.nip = nip;
     }
 
@@ -53,11 +53,11 @@ public class Admin {
         this.alamatAdmin = alamatAdmin;
     }
 
-    public int getTelpAdmin() {
+    public String getTelpAdmin() {
         return telpAdmin;
     }
 
-    public void setTelpAdmin(int telpAdmin) {
+    public void setTelpAdmin(String telpAdmin) {
         this.telpAdmin = telpAdmin;
     }
 
