@@ -22,6 +22,9 @@ public class Aplikasi {
     private ArrayList<Nilai> dataNilai;
     private ArrayList<Registrasi> dataRegist;
     private ArrayList<MataKuliah> dataMatkul;
+    private ArrayList<Indeks> dataIndeks;
+    private ArrayList<Jadwal> dataJadwal;
+    private ArrayList<Absensi> dataAbsensi;
     private Database con;
     private int index = -1;
 
@@ -32,6 +35,9 @@ public class Aplikasi {
         this.dataNilai = new ArrayList<>();
         this.dataRegist = new ArrayList<>();
         this.dataMatkul = new ArrayList<>();
+        this.dataIndeks = new ArrayList<>();
+        this.dataJadwal = new ArrayList<>();
+        this.dataAbsensi = new ArrayList<>();
         this.con = new Database();
         try{
             con.connect();
@@ -206,5 +212,89 @@ public class Aplikasi {
     
     public ArrayList<MataKuliah> getAllMatkul() throws SQLException{
         return con.getAllMatkul();
+    }
+    
+    //Indeks
+    public int createIndeks(int idMatkul, int nim, String indeksNilai){
+        Indeks indeks = new Indeks(idMatkul, nim, indeksNilai);
+        try{
+            dataIndeks.add(indeks);
+            con.saveIndeks(indeks);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return indeks.getIdIndeks();
+    }
+    
+    public void updateIndeks(Indeks indeks){
+        try{
+            con.updateIndeks(indeks);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void delIndeks(int idIndeks) throws SQLException{
+        con.delIndeks(idIndeks);
+    }
+    
+    public ArrayList<Indeks> getAllIndeks(int nim) throws SQLException{
+        return con.getAllIndeks(nim);
+    }
+    
+    //Jadwal
+    public int createJadwal(int idMatkul, int nik, String ruang){
+        Jadwal jadwal = new Jadwal(idMatkul, nik, ruang);
+        try{
+            dataJadwal.add(jadwal);
+            con.saveJadwal(jadwal);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return jadwal.getIdJadwal();
+    }
+    
+    public void updateJadwal(Jadwal jadwal){
+        try{
+            con.updateJadwal(jadwal);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void delJadwal(int idJadwal) throws SQLException{
+        con.delJadwal(idJadwal);
+    }
+    
+    public ArrayList<Jadwal> getAllJadwal() throws SQLException{
+        return con.getAllJadwal();
+    }
+    
+    //Absensi
+    public int createAbsensi(int idJadwal, int nim, String absen){
+        Absensi absensi = new Absensi(idJadwal, nim, absen);
+        try{
+            dataAbsensi.add(absensi);
+            con.saveAbsensi(absensi);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return absensi.getIdAbsensi();
+    }
+    
+    public void updateAbsensi(Absensi absensi){
+        try{
+            con.updateAbsensi(absensi);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void delAbsensi(int idAbsensi) throws SQLException{
+        con.delAbsensi(idAbsensi);
+    }
+    
+    public ArrayList<Absensi> getAllAbsensi() throws SQLException{
+        return con.getAllAbsensi();
     }
 }

@@ -22,6 +22,12 @@ public class Indeks {
         this.indeksNilai = indeksNilai;
     }
 
+    public Indeks(int idMatkul, int nim, String indeksNilai) {
+        this.idMatkul = idMatkul;
+        this.nim = nim;
+        this.indeksNilai = indeksNilai;
+    }
+    
     public int getIdIndeks() {
         return idIndeks;
     }
