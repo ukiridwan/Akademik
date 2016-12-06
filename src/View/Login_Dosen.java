@@ -181,7 +181,13 @@ public class Login_Dosen extends javax.swing.JFrame {
     }
 
     public int getTxtUnameDosen() {
-        return Integer.parseInt(txtUnameDosen.getText());
+        int val = 0;
+        try {
+            val = Integer.parseInt(txtUnameDosen.getText());
+        }catch (NumberFormatException e){
+            return val; 
+        } 
+        return val;
     }
 
     public void setTxtPassDosen(JPasswordField txtPassDosen) {

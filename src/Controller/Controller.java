@@ -81,8 +81,10 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpPw = pw;
             try {
                 mhs = model.getMhs(user);
-                tmpKelas = mhs.getKelas();
-                if((user == (mhs.getNim())) && pw.equals(mhs.getPassMhs())){
+                if(user == 0 || pw == null){
+                    lm.showMessage(null, "Nggak boleh kosong!");
+                }
+                else if(user ==(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
                     lm.showMessage(null, "Login Berhasil");
                     menumhs.setVisible(true);
                     lm.dispose();
@@ -175,12 +177,8 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             inputnimtoken.dispose();
         }else if(source.equals(inputtoken.getBtnSubmitToken())){
             tmpToken = inputtoken.getTxtInputToken();
-            try {
-                model.inputToken(tmpNim, tmpToken);
-                inputtoken.showMessage(null, "Token berhasil diinputkan");
-            } catch (SQLException ex) {
-                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            model.inputToken(tmpNim, tmpToken);
+            inputtoken.showMessage(null, "Token berhasil diinputkan");
         }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
             menuadmin.setVisible(true);
             inputtoken.dispose();
@@ -195,11 +193,14 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(ld.getBtnLoginDosen())){
             int user = ld.getTxtUnameDosen();
             String pw = ld.getTxtPassDosen();
-            tmpNim = user;
+            tmpNik = user;
             tmpPw = pw;
             try {
                 dosen = model.getDosen(user);
-                if((user == (dosen.getNik())) && pw.equals(dosen.getPassDosen())){
+                if(user != 0 || pw != null){
+                    lm.showMessage(null, "Nggak boleh kosong!");
+                }
+                else if((user == (dosen.getNik())) && pw.equals(dosen.getPassDosen())){
                     ld.showMessage(null, "Login berhasil");
                     menudosen.setVisible(true);
                     ld.dispose();

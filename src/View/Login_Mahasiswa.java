@@ -212,7 +212,13 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
     }
 
     public int getTxtUnameMhs() {
-        return Integer.parseInt(txtUnameMhs.getText());
+        int val = 0;
+        try {
+            val = Integer.parseInt(txtUnameMhs.getText());
+        }catch (NumberFormatException e){
+            return val; 
+        } 
+        return val;
     }
 
     public void setTxtPassMhs(JPasswordField txtPassMhs) {

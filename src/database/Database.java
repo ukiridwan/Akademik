@@ -26,7 +26,7 @@ public class Database {
     private Connection con;
     
     public void connect() throws SQLException {
-            con = DriverManager.getConnection(server, dbuser, dbuser);
+            con = DriverManager.getConnection(server, dbuser, dbpass);
             st = con.createStatement();
     }
     
