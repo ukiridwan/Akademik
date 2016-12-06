@@ -68,6 +68,8 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         inputtoken = new Input_Token();
         lm.setVisible(true);
         lm.addListener(this);
+        la.addListener(this);
+        ld.addListener(this);
     }
 
     @Override
@@ -142,12 +144,16 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpNip = user;
             tmpPw = pw;
             try {
-                admin = new Admin();
                 admin = model.getAdmin(user);
-                if((user == (admin.getNip())) && pw.equals(admin.getPassAdmin())){
+                if(user == 0 || pw == null){
+                    la.showMessage(null, "Nggak boleh kosong!");
+                }
+                else if(user ==(admin.getNip()) && pw.equals(admin.getPassAdmin())){
                     la.showMessage(null, "Login berhasil");
                     menuadmin.setVisible(true);
                     la.dispose();
+                }else{
+                    la.showMessage(null, "Username atau password salah!");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -197,11 +203,11 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpPw = pw;
             try {
                 dosen = model.getDosen(user);
-                if(user != 0 || pw != null){
-                    lm.showMessage(null, "Nggak boleh kosong!");
+                if(user == 0 || pw == null){
+                    ld.showMessage(null, "Nggak boleh kosong!");
                 }
-                else if((user == (dosen.getNik())) && pw.equals(dosen.getPassDosen())){
-                    ld.showMessage(null, "Login berhasil");
+                else if(user ==(dosen.getNik()) && pw.equals(dosen.getPassDosen())){
+                    ld.showMessage(null, "Login Berhasil");
                     menudosen.setVisible(true);
                     ld.dispose();
                 }else{
