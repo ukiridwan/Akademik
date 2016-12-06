@@ -198,8 +198,8 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
         this.txtInputNoTlp.setText(s);
     }
 
-    public void setTxtNIM(String s) {
-        this.txtNIM.setText(s);
+    public void setTxtNIM(int s) {
+        this.txtNIM.setText(String.valueOf(s));
     }
 
     public void setBtnMenuUtama(String s) {
@@ -230,8 +230,8 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
         return txtInputNoTlp.getText();
     }
 
-    public String getTxtNIM() {
-        return txtNIM.getText();
+    public int getTxtNIM() {
+        return Integer.parseInt(txtNIM.getText());
     }
 
     public void addListener(ActionListener e){

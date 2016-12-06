@@ -154,8 +154,8 @@ public class Input_NIMToken extends javax.swing.JFrame {
         return btnMenuUtamaMhs;
     }
 
-    public String getTxtInputNIMMhs() {
-        return txtInputNIMMhs.getText();
+    public int getTxtInputNIMMhs() {
+        return Integer.parseInt(txtInputNIMMhs.getText());
     }
 
     public void addListener(ActionListener e){

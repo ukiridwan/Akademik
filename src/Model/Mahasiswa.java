@@ -17,9 +17,6 @@ public class Mahasiswa {
     private String telpMhs;
     private String passMhs;
 
-    public Mahasiswa() {
-    }
-
     public Mahasiswa(int nim, String namaMhs, String kelas, String alamatMhs, String telpMhs, String passMhs) {
         this.nim = nim;
         this.namaMhs = namaMhs;

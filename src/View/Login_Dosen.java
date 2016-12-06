@@ -180,8 +180,8 @@ public class Login_Dosen extends javax.swing.JFrame {
         return txtPassDosen.getText();
     }
 
-    public String getTxtUnameDosen() {
-        return txtUnameDosen.getText();
+    public int getTxtUnameDosen() {
+        return Integer.parseInt(txtUnameDosen.getText());
     }
 
     public void setTxtPassDosen(JPasswordField txtPassDosen) {
