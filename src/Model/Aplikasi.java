@@ -297,4 +297,8 @@ public class Aplikasi {
     public ArrayList<Absensi> getAllAbsensi() throws SQLException{
         return con.getAllAbsensi();
     }
+
+    public Mahasiswa getMhs(String user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

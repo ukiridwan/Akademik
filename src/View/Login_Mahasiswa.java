@@ -69,6 +69,8 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
         lblLoginMhs.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblLoginMhs.setText("Login");
 
+        txtUnameMhs.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
         lblUsername.setText("Username");
 
         lblPass.setText("Password");
@@ -209,8 +211,14 @@ public class Login_Mahasiswa extends javax.swing.JFrame {
         return txtPassMhs.getText();
     }
 
-    public String getTxtUnameMhs() {
-        return txtUnameMhs.getText();
+    public int getTxtUnameMhs() {
+        int val = 0;
+        try {
+            val = Integer.parseInt(txtUnameMhs.getText());
+        }catch (NumberFormatException e){
+            return val; 
+        } 
+        return val;
     }
 
     public void setTxtPassMhs(JPasswordField txtPassMhs) {

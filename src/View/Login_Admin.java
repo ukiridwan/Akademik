@@ -181,8 +181,8 @@ public class Login_Admin extends javax.swing.JFrame {
         return txtPassAdmin.getText();
     }
 
-    public String getTxtUnameAdmin() {
-        return txtUnameAdmin.getText();
+    public int getTxtUnameAdmin() {
+        return Integer.parseInt(txtUnameAdmin.getText());
     }
 
     public void setBtnLoginAdmin(JButton btnLoginAdmin) {

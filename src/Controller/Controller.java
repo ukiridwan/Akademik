@@ -33,9 +33,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private MenuUtama_Admin menuadmin;
     private MenuUtama_Dosen menudosen;
     private EditData_Mahasiswa editmhs;
-    private Jadwal jadwaldsn;
+    private MenuJadwal jadwaldsn;
     private Lihat_Jadwal_Kelas jadwalmhs; 
-    private Registrasi regismhs;
+    private MenuRegistrasi regismhs;
     private Input_NIMToken inputnimtoken;
     private Input_Token inputtoken;
     private Penjadwalan_Kelas pk;
@@ -46,10 +46,12 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private Mahasiswa mhs;
     private Admin admin;
     private Dosen dosen;
-    private String tmpNim;
+    private int tmpNim;
     private String tmpPw;
     private String tmpKelas;
     private String tmpToken;
+    private int tmpNip;
+    private int tmpNik;
     
     public Controller(Aplikasi model) {
         this.model = model;
@@ -57,7 +59,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         la = new Login_Admin();
         ld = new Login_Dosen();
         jadwalmhs = new Lihat_Jadwal_Kelas();
-        regismhs = new Registrasi();
+        regismhs = new MenuRegistrasi();
         menumhs = new MenuUtama_Mahasiswa();
         menuadmin = new MenuUtama_Admin();
         menudosen = new MenuUtama_Dosen();
@@ -73,14 +75,16 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         Object source = e.getSource();
         //login mahasiswa
         if(source.equals(lm.getBtnLoginMhs())){
-            String user = lm.getTxtUnameMhs();
+            int user = lm.getTxtUnameMhs();
             String pw = lm.getTxtPassMhs();
             tmpNim = user;
             tmpPw = pw;
             try {
                 mhs = model.getMhs(user);
-                tmpKelas = mhs.getKelas();
-                if(user.equals(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
+                if(user == 0 || pw == null){
+                    lm.showMessage(null, "Nggak boleh kosong!");
+                }
+                else if(user ==(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
                     lm.showMessage(null, "Login Berhasil");
                     menumhs.setVisible(true);
                     lm.dispose();
@@ -114,9 +118,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             String nama = editmhs.getTxtInputNama();
             String alamat = editmhs.getTxtAlamat();
             String telp = editmhs.getTxtInputNoTlp();
-            String nim = tmpNim;
+            int nim = tmpNim;
             editmhs.setTxtNIM(nim);
-            mhs = new Mahasiswa(nama, nim, tmpKelas, alamat, telp, tmpPw, null);
+            mhs = new Mahasiswa(nim, nama, tmpKelas, alamat, telp, tmpPw);
             editmhs.showMessage(null, "Edit Berhasil");
         }
         //lihat jadwal mhs
@@ -133,15 +137,15 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             la.setVisible(true);
             lm.dispose();
         }else if(source.equals(la.getBtnLoginAdmin())){
-            String user = la.getTxtUnameAdmin();
+            int user = la.getTxtUnameAdmin();
             String pw = la.getTxtPassAdmin();
-            tmpNim = user;
+            tmpNip = user;
             tmpPw = pw;
             try {
                 admin = new Admin();
                 admin = model.getAdmin(user);
-                if(user.equals(admin.getNip()) && pw.equals(admin.getPassAdmin())){
-                    la.showMessage(null, "Loing berhasil");
+                if((user == (admin.getNip())) && pw.equals(admin.getPassAdmin())){
+                    la.showMessage(null, "Login berhasil");
                     menuadmin.setVisible(true);
                     la.dispose();
                 }
@@ -173,12 +177,8 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             inputnimtoken.dispose();
         }else if(source.equals(inputtoken.getBtnSubmitToken())){
             tmpToken = inputtoken.getTxtInputToken();
-            try {
-                model.inputToken(tmpNim, tmpToken);
-                inputtoken.showMessage(null, "Token berhasil diinputkan");
-            } catch (SQLException ex) {
-                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            model.inputToken(tmpNim, tmpToken);
+            inputtoken.showMessage(null, "Token berhasil diinputkan");
         }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
             menuadmin.setVisible(true);
             inputtoken.dispose();
@@ -191,12 +191,16 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             ld.setVisible(true);
             lm.dispose();
         }else if(source.equals(ld.getBtnLoginDosen())){
-            String user = ld.getTxtUnameDosen();
+            int user = ld.getTxtUnameDosen();
             String pw = ld.getTxtPassDosen();
-            dosen = new Dosen();
+            tmpNik = user;
+            tmpPw = pw;
             try {
                 dosen = model.getDosen(user);
-                if(user.equals(dosen.getNik()) && pw.equals(dosen.getPassDosen())){
+                if(user != 0 || pw != null){
+                    lm.showMessage(null, "Nggak boleh kosong!");
+                }
+                else if((user == (dosen.getNik())) && pw.equals(dosen.getPassDosen())){
                     ld.showMessage(null, "Login berhasil");
                     menudosen.setVisible(true);
                     ld.dispose();
