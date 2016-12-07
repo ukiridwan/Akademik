@@ -59,9 +59,10 @@ public class Login_Dosen extends javax.swing.JFrame {
         lblPassDosen = new javax.swing.JLabel();
         btnLoginDosen = new javax.swing.JButton();
         txtPassDosen = new javax.swing.JPasswordField();
+        BtnChangeLoginToMhs = new javax.swing.JButton();
+        BtnChangeLoginToAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(685, 300));
 
         lblLoginDosen.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblLoginDosen.setText("Login");
@@ -73,6 +74,10 @@ public class Login_Dosen extends javax.swing.JFrame {
         lblPassDosen.setText("Password");
 
         btnLoginDosen.setText("Login");
+
+        BtnChangeLoginToMhs.setText("Mahasiswa");
+
+        BtnChangeLoginToAdmin.setText("Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,11 +102,15 @@ public class Login_Dosen extends javax.swing.JFrame {
                             .addComponent(lblPassDosen)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnLoginDosen)
-                                    .addGap(66, 66, 66))
+                                .addComponent(btnLoginDosen)
                                 .addComponent(txtPassDosen, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(243, 243, 243))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(BtnChangeLoginToMhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnChangeLoginToAdmin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +129,11 @@ public class Login_Dosen extends javax.swing.JFrame {
                     .addComponent(txtPassDosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLoginDosen)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnChangeLoginToMhs)
+                    .addComponent(BtnChangeLoginToAdmin))
+                .addContainerGap())
         );
 
         pack();
@@ -163,6 +176,8 @@ public class Login_Dosen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnChangeLoginToAdmin;
+    private javax.swing.JButton BtnChangeLoginToMhs;
     private javax.swing.JButton btnLoginDosen;
     private javax.swing.JLabel lblLoginDosen;
     private javax.swing.JLabel lblPassDosen;
@@ -174,6 +189,14 @@ public class Login_Dosen extends javax.swing.JFrame {
 
     public JButton getBtnLoginDosen() {
         return btnLoginDosen;
+    }
+
+    public JButton getBtnChangeLoginToAdmin() {
+        return BtnChangeLoginToAdmin;
+    }
+
+    public JButton getBtnChangeLoginToMhs() {
+        return BtnChangeLoginToMhs;
     }
 
     public String getTxtPassDosen() {
@@ -201,9 +224,19 @@ public class Login_Dosen extends javax.swing.JFrame {
     public void setBtnLoginDosen(JButton btnLoginDosen) {
         this.btnLoginDosen = btnLoginDosen;
     }
+
+    public void setBtnChangeLoginToAdmin(JButton BtnChangeLoginToAdmin) {
+        this.BtnChangeLoginToAdmin = BtnChangeLoginToAdmin;
+    }
+
+    public void setBtnChangeLoginToMhs(JButton BtnChangeLoginToMhs) {
+        this.BtnChangeLoginToMhs = BtnChangeLoginToMhs;
+    }
     
     public void addListener(ActionListener e){
         btnLoginDosen.addActionListener(e);
+        BtnChangeLoginToAdmin.addActionListener(e);
+        BtnChangeLoginToMhs.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){

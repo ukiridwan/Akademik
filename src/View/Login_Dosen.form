@@ -54,6 +54,13 @@
               </Group>
               <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+              <Component id="BtnChangeLoginToMhs" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="BtnChangeLoginToAdmin" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -75,7 +82,12 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnLoginDosen" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BtnChangeLoginToMhs" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnChangeLoginToAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,6 +124,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPassDosen">
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnChangeLoginToMhs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mahasiswa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnChangeLoginToAdmin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Admin"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

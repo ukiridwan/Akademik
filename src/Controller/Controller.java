@@ -84,7 +84,13 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         //login mahasiswa
-        if(source.equals(lm.getBtnLoginMhs())){
+        if(source.equals(la.getBtnChangeLoginToMhs())){
+            lm.setVisible(true);
+            la.dispose();
+        }else if(source.equals(ld.getBtnChangeLoginToMhs())){
+            lm.setVisible(true);
+            ld.dispose();
+        }else if(source.equals(lm.getBtnLoginMhs())){
             int user = lm.getTxtUnameMhs();
             String pw = null;
             pw = lm.getTxtPassMhs();
@@ -154,7 +160,10 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             
         }
         //login admin
-        else if(source.equals(lm.getBtnChangeLoginToAdmin())){
+        else if(source.equals(ld.getBtnChangeLoginToAdmin())){
+            la.setVisible(true);
+            ld.dispose();
+        }else if(source.equals(lm.getBtnChangeLoginToAdmin())){
             la.setVisible(true);
             lm.dispose();
         }else if(source.equals(la.getBtnLoginAdmin())){
@@ -212,7 +221,10 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             menuadmin.dispose();
         }
         //login dosen
-        else if(source.equals(lm.getBtnChangeLoginToDosen())){
+        else if(source.equals(la.getBtnChangeLoginToDosen())){
+            ld.setVisible(true);
+            la.dispose();
+        }else if(source.equals(lm.getBtnChangeLoginToDosen())){
             ld.setVisible(true);
             lm.dispose();
         }else if(source.equals(ld.getBtnLoginDosen())){
