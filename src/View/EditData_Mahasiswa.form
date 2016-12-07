@@ -24,24 +24,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="241" max="32767" attributes="0"/>
+              <EmptySpace pref="235" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNama" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNim" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblAlamat" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNoTlp" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnUpdteDataMhs" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtInputNama" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNIM" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtAlamat" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtInputNoTlp" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="txtAlamat" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtInputNoTlp" alignment="0" pref="152" max="32767" attributes="0"/>
+                          <Component id="txtInputPw" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                       <Component id="btnMenuUtamaMhs" min="-2" max="-2" attributes="0"/>
@@ -60,31 +56,26 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="lblDataMahasiswa" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNama" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtInputNama" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtInputPw" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblNim" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNIM" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblAlamat" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtAlamat" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtAlamat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAlamat" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNoTlp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtInputNoTlp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="btnUpdteDataMhs" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnMenuUtamaMhs" min="-2" max="-2" attributes="0"/>
@@ -96,22 +87,10 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtInputNama">
-    </Component>
     <Component class="javax.swing.JLabel" name="lblNama">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nama"/>
+        <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblNim">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="NIM"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNIM">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNIMActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAlamat">
     </Component>
@@ -144,6 +123,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Menu Utama"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtInputPw">
     </Component>
   </SubComponents>
 </Form>

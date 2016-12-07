@@ -70,6 +70,14 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         lm.addListener(this);
         la.addListener(this);
         ld.addListener(this);
+        jadwalmhs.addListener(this);
+        regismhs.addListener(this);
+        menumhs.addListener(this);
+        menuadmin.addListener(this);
+        menudosen.addListener(this);
+        editmhs.addListener(this);
+        inputnimtoken.addListener(this);
+        inputtoken.addListener(this);
     }
 
     @Override
@@ -78,12 +86,13 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         //login mahasiswa
         if(source.equals(lm.getBtnLoginMhs())){
             int user = lm.getTxtUnameMhs();
-            String pw = lm.getTxtPassMhs();
+            String pw = null;
+            pw = lm.getTxtPassMhs();
             tmpNim = user;
             tmpPw = pw;
             try {
                 mhs = model.getMhs(user);
-                if(user == 0 || pw == null){
+                if(user == 0 || pw.equals(null)){
                     lm.showMessage(null, "Nggak boleh kosong!");
                 }
                 else if(user ==(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
@@ -117,13 +126,23 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             editmhs.dispose();
         }
         else if(source.equals(editmhs.getBtnUpdteDataMhs())){
-            String nama = editmhs.getTxtInputNama();
+            String pw = editmhs.getTxtInputPw();
             String alamat = editmhs.getTxtAlamat();
             String telp = editmhs.getTxtInputNoTlp();
-            int nim = tmpNim;
-            editmhs.setTxtNIM(nim);
-            mhs = new Mahasiswa(nim, nama, tmpKelas, alamat, telp, tmpPw);
-            editmhs.showMessage(null, "Edit Berhasil");
+            
+            if(pw == null || alamat.equals(null) || telp.equals(null)){
+                editmhs.showMessage(null, "Tidak boleh kosong!");
+            }else{
+                try {
+                    mhs = model.getMhs(tmpNim);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int nim = tmpNim;
+                mhs = new Mahasiswa(nim, mhs.getNamaMhs(), mhs.getKelas(), alamat, telp, pw);
+                model.updateMhs(mhs);
+                editmhs.showMessage(null, "Edit Berhasil");
+            }
         }
         //lihat jadwal mhs
         else if(source.equals(jadwalmhs.getBtnMenuUtamaMhs())){

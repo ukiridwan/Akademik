@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -33,10 +34,7 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtInputNama = new javax.swing.JTextField();
         lblNama = new javax.swing.JLabel();
-        lblNim = new javax.swing.JLabel();
-        txtNIM = new javax.swing.JTextField();
         txtAlamat = new javax.swing.JTextField();
         lblAlamat = new javax.swing.JLabel();
         lblNoTlp = new javax.swing.JLabel();
@@ -44,18 +42,11 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
         btnUpdteDataMhs = new javax.swing.JButton();
         lblDataMahasiswa = new javax.swing.JLabel();
         btnMenuUtamaMhs = new javax.swing.JButton();
+        txtInputPw = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblNama.setText("Nama");
-
-        lblNim.setText("NIM");
-
-        txtNIM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNIMActionPerformed(evt);
-            }
-        });
+        lblNama.setText("Password");
 
         lblAlamat.setText("Alamat");
 
@@ -73,24 +64,19 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(235, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNama)
-                            .addComponent(lblNim)
                             .addComponent(lblAlamat)
                             .addComponent(lblNoTlp))
                         .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnUpdteDataMhs)
-                                .addGap(85, 85, 85))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtInputNama)
-                                .addComponent(txtNIM)
-                                .addComponent(txtAlamat)
-                                .addComponent(txtInputNoTlp, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnUpdteDataMhs)
+                            .addComponent(txtAlamat)
+                            .addComponent(txtInputNoTlp, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(txtInputPw))
                         .addGap(126, 126, 126)
                         .addComponent(btnMenuUtamaMhs)
                         .addContainerGap())
@@ -103,27 +89,23 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblDataMahasiswa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNama)
-                            .addComponent(txtInputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtInputPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNim)
-                            .addComponent(txtNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAlamat)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAlamat))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNoTlp)
                             .addComponent(txtInputNoTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(46, 46, 46)
                         .addComponent(btnUpdteDataMhs)
-                        .addGap(30, 30, 30))
+                        .addGap(43, 43, 43))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnMenuUtamaMhs)
                         .addContainerGap())))
@@ -131,10 +113,6 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNIMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNIMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,28 +156,21 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlamat;
     private javax.swing.JLabel lblDataMahasiswa;
     private javax.swing.JLabel lblNama;
-    private javax.swing.JLabel lblNim;
     private javax.swing.JLabel lblNoTlp;
     private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtInputNama;
     private javax.swing.JTextField txtInputNoTlp;
-    private javax.swing.JTextField txtNIM;
+    private javax.swing.JPasswordField txtInputPw;
     // End of variables declaration//GEN-END:variables
 
     public void setTxtAlamat(String s) {
         this.txtAlamat.setText(s);
     }
-
-    public void setTxtInputNama(String s) {
-        this.txtInputNama.setText(s);
-    }
-
     public void setTxtInputNoTlp(String s) {
         this.txtInputNoTlp.setText(s);
     }
 
-    public void setTxtNIM(int s) {
-        this.txtNIM.setText(String.valueOf(s));
+    public void setTxtInputPw(String s) {
+        this.txtInputPw.setText(s);
     }
 
     public void setBtnMenuUtama(String s) {
@@ -222,16 +193,12 @@ public class EditData_Mahasiswa extends javax.swing.JFrame {
         return txtAlamat.getText();
     }
 
-    public String getTxtInputNama() {
-        return txtInputNama.getText();
+    public String getTxtInputPw() {
+        return txtInputPw.getText();
     }
 
     public String getTxtInputNoTlp() {
         return txtInputNoTlp.getText();
-    }
-
-    public int getTxtNIM() {
-        return Integer.parseInt(txtNIM.getText());
     }
 
     public void addListener(ActionListener e){
