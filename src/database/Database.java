@@ -212,15 +212,14 @@ public class Database {
 
     //Registrasi
     public void saveToken(Registrasi regist) throws SQLException{
-        String query = "INSERT INTO registrasi(idRegist, nip, nim, token) VALUES (NULL,'','"+regist.getNim()+"','"
-                        +regist.getToken()+"')";
+        String query = "INSERT INTO registrasi(nim, token, status) VALUES ('"+regist.getNim()+"','"
+                        +regist.getToken()+"','Belum Terverifikasi')";
         st.execute(query, Statement.RETURN_GENERATED_KEYS);
         ResultSet rs = st.getGeneratedKeys();
     }
     
     public void updateRegistNip(Registrasi regist) throws SQLException{
-        String query = "UPDATE registrasi SET nip ='"
-                        +regist.getNip()+"' WHERE idRegist ='"
+        String query = "UPDATE registrasi SET status ='Terverifikasi' WHERE idRegist ='"
                         +regist.getIdRegist()+"'";
         st.executeUpdate(query);
     }
@@ -236,7 +235,7 @@ public class Database {
         String query = "SELECT * FROM registrasi";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
-              Registrasi regist = new Registrasi(rs.getInt("idRegist"), rs.getInt("nip"), rs.getInt("nim"), rs.getString("token"));
+              Registrasi regist = new Registrasi(rs.getInt("idRegist"), rs.getInt("nim"), rs.getString("token"), rs.getString("status"));
               dataRegist.add(regist);
         }
         return dataRegist;  

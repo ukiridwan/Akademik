@@ -123,6 +123,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(menumhs.getBtnLogOutMhs())){
             lm.setVisible(true);
             menumhs.dispose();
+        }else if(source.equals(menumhs.getBtnInputToken())){
+            inputtoken.setVisible(true);
+            menumhs.dispose();
         }
         //update data mhs
         else if(source.equals(editmhs.getBtnMenuUtama())){
@@ -134,7 +137,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             String alamat = editmhs.getTxtAlamat();
             String telp = editmhs.getTxtInputNoTlp();
             
-            if(pw == null || alamat.equals(null) || telp.equals(null)){
+            if(pw.isEmpty() || alamat.isEmpty() || telp.isEmpty()){
                 editmhs.showMessage(null, "Tidak boleh kosong!");
             }else{
                 try {
@@ -157,6 +160,16 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         else if(source.equals(regismhs.getBtnInputMatKul())){
             
         }
+        //input token
+        else if(source.equals(inputtoken.getBtnSubmitToken())){
+            tmpToken = inputtoken.getTxtInputToken();
+            model.inputToken(tmpNim, tmpToken);
+            inputtoken.showMessage(null, "Token berhasil diinputkan");
+        }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
+            menumhs.setVisible(true);
+            inputtoken.dispose();
+        }
+        
         //login admin
         else if(source.equals(ld.getBtnChangeLoginToAdmin())){
             la.setVisible(true);
@@ -204,16 +217,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             } catch (SQLException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if(source.equals(inputnimtoken.getBtnMenuUtamaMhs())){
+        }else if(source.equals(inputnimtoken.getBtnMenuUtamaAdmin())){
             menuadmin.setVisible(true);
             inputnimtoken.dispose();
-        }else if(source.equals(inputtoken.getBtnSubmitToken())){
-            tmpToken = inputtoken.getTxtInputToken();
-            model.inputToken(tmpNim, tmpToken);
-            inputtoken.showMessage(null, "Token berhasil diinputkan");
-        }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
-            menuadmin.setVisible(true);
-            inputtoken.dispose();
         }else if(source.equals(menuadmin.getBtnPenjadwalanKls())){
             pk.setVisible(true);
             menuadmin.dispose();
