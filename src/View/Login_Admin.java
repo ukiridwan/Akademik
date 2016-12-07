@@ -59,9 +59,10 @@ public class Login_Admin extends javax.swing.JFrame {
         lblPassAdmin = new javax.swing.JLabel();
         btnLoginAdmin = new javax.swing.JButton();
         txtPassAdmin = new javax.swing.JPasswordField();
+        BtnChangeLoginToDosen = new javax.swing.JButton();
+        BtnChangeLoginToMhs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(685, 300));
 
         lblLoginAdmin.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblLoginAdmin.setText("Login");
@@ -74,6 +75,10 @@ public class Login_Admin extends javax.swing.JFrame {
 
         btnLoginAdmin.setText("Login");
 
+        BtnChangeLoginToDosen.setText("Dosen");
+
+        BtnChangeLoginToMhs.setText("Mahasiswa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,27 +86,30 @@ public class Login_Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUnameAdmin)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtUnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPassAdmin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnLoginAdmin)
-                                        .addGap(66, 66, 66))
-                                    .addComponent(txtPassAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(286, 286, 286)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSebagaiAdmin)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(lblLoginAdmin)))))
+                                .addComponent(lblLoginAdmin))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnChangeLoginToDosen)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BtnChangeLoginToMhs))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblUnameAdmin)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(txtUnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblPassAdmin)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btnLoginAdmin)
+                                        .addComponent(txtPassAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,7 +129,11 @@ public class Login_Admin extends javax.swing.JFrame {
                     .addComponent(txtPassAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLoginAdmin)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnChangeLoginToDosen)
+                    .addComponent(BtnChangeLoginToMhs))
+                .addContainerGap())
         );
 
         pack();
@@ -164,6 +176,8 @@ public class Login_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnChangeLoginToDosen;
+    private javax.swing.JButton BtnChangeLoginToMhs;
     private javax.swing.JButton btnLoginAdmin;
     private javax.swing.JLabel lblLoginAdmin;
     private javax.swing.JLabel lblPassAdmin;
@@ -177,6 +191,14 @@ public class Login_Admin extends javax.swing.JFrame {
         return btnLoginAdmin;
     }
 
+    public JButton getBtnChangeLoginToDosen() {
+        return BtnChangeLoginToDosen;
+    }
+
+    public JButton getBtnChangeLoginToMhs() {
+        return BtnChangeLoginToMhs;
+    }    
+    
     public String getTxtPassAdmin() {
         return txtPassAdmin.getText();
     }
@@ -194,7 +216,15 @@ public class Login_Admin extends javax.swing.JFrame {
     public void setBtnLoginAdmin(JButton btnLoginAdmin) {
         this.btnLoginAdmin = btnLoginAdmin;
     }
+    
+    public void setBtnChangeLoginToDosen(JButton BtnChangeLoginToDosen) {
+        this.BtnChangeLoginToDosen = BtnChangeLoginToDosen;
+    }
 
+    public void setBtnChangeLoginToMhs(JButton BtnChangeLoginToMhs) {
+        this.BtnChangeLoginToMhs = BtnChangeLoginToMhs;
+    }
+    
     public void setTxtPassAdmin(JPasswordField txtPassAdmin) {
         this.txtPassAdmin = txtPassAdmin;
     }
@@ -205,6 +235,8 @@ public class Login_Admin extends javax.swing.JFrame {
     
     public void addListener(ActionListener e){
         btnLoginAdmin.addActionListener(e);
+        BtnChangeLoginToDosen.addActionListener(e);
+        BtnChangeLoginToMhs.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){
