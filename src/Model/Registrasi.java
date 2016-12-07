@@ -11,15 +11,15 @@ package Model;
  */
 public class Registrasi {
     private int idRegist;
-    private int nip;
     private int nim;
     private String token;
+    private String status;
 
-    public Registrasi(int idRegist, int nip, int nim, String token) {
+    public Registrasi(int idRegist, int nim, String token, String status) {
         this.idRegist = idRegist;
-        this.nip = nip;
         this.nim = nim;
         this.token = token;
+        this.status = status;
     }
 
     public Registrasi(int nim, String token) {
@@ -33,14 +33,6 @@ public class Registrasi {
 
     public void setIdRegist(int idRegist) {
         this.idRegist = idRegist;
-    }
-
-    public int getNip() {
-        return nip;
-    }
-
-    public void setNip(int nip) {
-        this.nip = nip;
     }
 
     public int getNim() {
@@ -58,6 +50,13 @@ public class Registrasi {
     public void setToken(String token) {
         this.token = token;
     }
-    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
 }

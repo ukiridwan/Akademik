@@ -29,6 +29,10 @@ public class Admin {
         this.passAdmin = passAdmin;
     }
 
+    public Admin(int nip) {
+        this.nip = nip;
+    }
+
     public int getNip() {
         return nip;
     }

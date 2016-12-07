@@ -27,7 +27,7 @@
               <EmptySpace min="0" pref="184" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnMenuUtamaMhs" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnMenuUtamaAdmin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -62,7 +62,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCariNimMhs" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="50" max="32767" attributes="0"/>
-              <Component id="btnMenuUtamaMhs" min="-2" max="-2" attributes="0"/>
+              <Component id="btnMenuUtamaAdmin" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -89,7 +89,7 @@
         <Property name="text" type="java.lang.String" value="Cari"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMenuUtamaMhs">
+    <Component class="javax.swing.JButton" name="btnMenuUtamaAdmin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Menu Utama"/>
       </Properties>

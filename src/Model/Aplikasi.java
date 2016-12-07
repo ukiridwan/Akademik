@@ -158,7 +158,7 @@ public class Aplikasi {
     }
     
     //Registrasi
-    public int inputToken(int nim, String token){
+    public void inputToken(int nim, String token){
         Registrasi regist = new Registrasi(nim, token);
         try{
             dataRegist.add(regist);
@@ -166,7 +166,6 @@ public class Aplikasi {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
-        return regist.getIdRegist();
     }
     
     public void updateRegistNip(Registrasi regist){

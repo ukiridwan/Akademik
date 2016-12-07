@@ -92,16 +92,14 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             ld.dispose();
         }else if(source.equals(lm.getBtnLoginMhs())){
             int user = lm.getTxtUnameMhs();
-            String pw = null;
-            pw = lm.getTxtPassMhs();
+            String pw = lm.getTxtPassMhs();
             tmpNim = user;
             tmpPw = pw;
             try {
                 mhs = model.getMhs(user);
-                if(user == 0 || pw.equals(null)){
+                if(user == 0 || pw.isEmpty()){
                     lm.showMessage(null, "Nggak boleh kosong!");
-                }
-                else if(user ==(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
+                }else if(user ==(mhs.getNim()) && pw.equals(mhs.getPassMhs())){
                     lm.showMessage(null, "Login Berhasil");
                     menumhs.setVisible(true);
                     lm.dispose();
@@ -125,6 +123,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(menumhs.getBtnLogOutMhs())){
             lm.setVisible(true);
             menumhs.dispose();
+        }else if(source.equals(menumhs.getBtnInputToken())){
+            inputtoken.setVisible(true);
+            menumhs.dispose();
         }
         //update data mhs
         else if(source.equals(editmhs.getBtnMenuUtama())){
@@ -136,7 +137,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             String alamat = editmhs.getTxtAlamat();
             String telp = editmhs.getTxtInputNoTlp();
             
-            if(pw == null || alamat.equals(null) || telp.equals(null)){
+            if(pw.isEmpty() || alamat.isEmpty() || telp.isEmpty()){
                 editmhs.showMessage(null, "Tidak boleh kosong!");
             }else{
                 try {
@@ -159,6 +160,16 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         else if(source.equals(regismhs.getBtnInputMatKul())){
             
         }
+        //input token
+        else if(source.equals(inputtoken.getBtnSubmitToken())){
+            tmpToken = inputtoken.getTxtInputToken();
+            model.inputToken(tmpNim, tmpToken);
+            inputtoken.showMessage(null, "Token berhasil diinputkan");
+        }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
+            menumhs.setVisible(true);
+            inputtoken.dispose();
+        }
+        
         //login admin
         else if(source.equals(ld.getBtnChangeLoginToAdmin())){
             la.setVisible(true);
@@ -173,7 +184,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpPw = pw;
             try {
                 admin = model.getAdmin(user);
-                if(user == 0 || pw == null){
+                if(user == 0 || pw.isEmpty()){
                     la.showMessage(null, "Nggak boleh kosong!");
                 }
                 else if(user ==(admin.getNip()) && pw.equals(admin.getPassAdmin())){
@@ -206,16 +217,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             } catch (SQLException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if(source.equals(inputnimtoken.getBtnMenuUtamaMhs())){
+        }else if(source.equals(inputnimtoken.getBtnMenuUtamaAdmin())){
             menuadmin.setVisible(true);
             inputnimtoken.dispose();
-        }else if(source.equals(inputtoken.getBtnSubmitToken())){
-            tmpToken = inputtoken.getTxtInputToken();
-            model.inputToken(tmpNim, tmpToken);
-            inputtoken.showMessage(null, "Token berhasil diinputkan");
-        }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
-            menuadmin.setVisible(true);
-            inputtoken.dispose();
         }else if(source.equals(menuadmin.getBtnPenjadwalanKls())){
             pk.setVisible(true);
             menuadmin.dispose();
@@ -234,7 +238,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpPw = pw;
             try {
                 dosen = model.getDosen(user);
-                if(user == 0 || pw == null){
+                if(user == 0 || pw.isEmpty()){
                     ld.showMessage(null, "Nggak boleh kosong!");
                 }
                 else if(user ==(dosen.getNik()) && pw.equals(dosen.getPassDosen())){

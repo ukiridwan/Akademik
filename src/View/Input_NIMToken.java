@@ -37,7 +37,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
         lblNIMMhs = new javax.swing.JLabel();
         txtInputNIMMhs = new javax.swing.JTextField();
         btnCariNimMhs = new javax.swing.JButton();
-        btnMenuUtamaMhs = new javax.swing.JButton();
+        btnMenuUtamaAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +48,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
 
         btnCariNimMhs.setText("Cari");
 
-        btnMenuUtamaMhs.setText("Menu Utama");
+        btnMenuUtamaAdmin.setText("Menu Utama");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +58,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
                 .addGap(0, 184, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnMenuUtamaMhs)
+                        .addComponent(btnMenuUtamaAdmin)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +84,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnCariNimMhs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(btnMenuUtamaMhs)
+                .addComponent(btnMenuUtamaAdmin)
                 .addContainerGap())
         );
 
@@ -128,7 +128,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCariNimMhs;
-    private javax.swing.JButton btnMenuUtamaMhs;
+    private javax.swing.JButton btnMenuUtamaAdmin;
     private javax.swing.JLabel lblKonfirmasiToken;
     private javax.swing.JLabel lblNIMMhs;
     private javax.swing.JTextField txtInputNIMMhs;
@@ -138,8 +138,8 @@ public class Input_NIMToken extends javax.swing.JFrame {
         this.btnCariNimMhs = btnCariNimMhs;
     }
 
-    public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
-        this.btnMenuUtamaMhs = btnMenuUtamaMhs;
+    public void setBtnMenuUtamaAdmin(JButton btnMenuUtamaAdmin) {
+        this.btnMenuUtamaAdmin = btnMenuUtamaAdmin;
     }
 
     public void setTxtInputNIMMhs(JTextField txtInputNIMMhs) {
@@ -150,8 +150,8 @@ public class Input_NIMToken extends javax.swing.JFrame {
         return btnCariNimMhs;
     }
 
-    public JButton getBtnMenuUtamaMhs() {
-        return btnMenuUtamaMhs;
+    public JButton getBtnMenuUtamaAdmin() {
+        return btnMenuUtamaAdmin;
     }
 
     public int getTxtInputNIMMhs() {
@@ -160,7 +160,7 @@ public class Input_NIMToken extends javax.swing.JFrame {
 
     public void addListener(ActionListener e){
         btnCariNimMhs.addActionListener(e);
-        btnMenuUtamaMhs.addActionListener(e);
+        btnMenuUtamaAdmin.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){

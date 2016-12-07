@@ -27,6 +27,10 @@ public class Dosen {
         this.passDosen = passDosen;
     }
 
+    public Dosen(int nik) {
+        this.nik = nik;
+    }
+
     public int getNik() {
         return nik;
     }
