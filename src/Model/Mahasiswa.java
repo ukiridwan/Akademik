@@ -26,6 +26,10 @@ public class Mahasiswa {
         this.passMhs = passMhs;
     }
 
+    public Mahasiswa(int nim) {
+        this.nim = nim;
+    }
+
     public String getNamaMhs() {
         return namaMhs;
     }

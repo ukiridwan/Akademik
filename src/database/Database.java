@@ -43,8 +43,13 @@ public class Database {
         Mahasiswa mhs = null;
         String query = "SELECT * FROM mahasiswa WHERE nim = '"+nim+"'";
         ResultSet rs = st.executeQuery(query);
-        while(rs.next()){
-            mhs = new Mahasiswa(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+        if (!rs.next()){
+            mhs = new Mahasiswa(0);
+        } else {
+            rs.beforeFirst();
+            while(rs.next()){
+                mhs = new Mahasiswa(rs.getInt("nim"), rs.getString("namaMhs"), rs.getString("kelas"), rs.getString("alamatMhs"), rs.getString("telpMhs"), rs.getString("passMhs"));
+            }
         }
         return mhs;
     }
@@ -98,8 +103,13 @@ public class Database {
         Dosen dosen = null;
         String query = "SELECT * FROM dosen WHERE nik = '"+nik+"'";
         ResultSet rs = st.executeQuery(query);
-        while(rs.next()){
-            dosen = new Dosen(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+        if (!rs.next()){
+            dosen = new Dosen(0);
+        } else {
+            rs.beforeFirst();
+            while(rs.next()){
+                dosen = new Dosen(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            }
         }
         return dosen;
     }
@@ -153,8 +163,13 @@ public class Database {
         Admin admin = null;
         String query = "SELECT * FROM admin WHERE nip = '"+nip+"'";
         ResultSet rs = st.executeQuery(query);
-        while(rs.next()){
-            admin = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+        if (!rs.next()){
+            admin = new Admin(0);
+        } else {
+            rs.beforeFirst();
+            while(rs.next()){
+                admin = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            }
         }
         return admin;
     }
