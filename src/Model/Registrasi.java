@@ -27,6 +27,10 @@ public class Registrasi {
         this.token = token;
     }
 
+    public Registrasi(int nim) {
+        this.nim = nim;
+    }
+
     public int getIdRegist() {
         return idRegist;
     }

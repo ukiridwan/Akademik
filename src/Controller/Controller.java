@@ -16,6 +16,7 @@ import database.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,6 +40,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private Input_NIMToken inputnimtoken;
     private Input_Token inputtoken;
     private Penjadwalan_Kelas pk;
+    private Veriv_Token verivtoken;
     private Database db;
     private Statement st;
     private String query;
@@ -46,6 +48,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private Mahasiswa mhs;
     private Admin admin;
     private Dosen dosen;
+    private Registrasi regist;
     private int tmpNim;
     private String tmpPw;
     private String tmpKelas;
@@ -66,6 +69,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         editmhs = new EditData_Mahasiswa();
         inputnimtoken = new Input_NIMToken();
         inputtoken = new Input_Token();
+        verivtoken = new Veriv_Token();
         lm.setVisible(true);
         lm.addListener(this);
         la.addListener(this);
@@ -78,6 +82,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         editmhs.addListener(this);
         inputnimtoken.addListener(this);
         inputtoken.addListener(this);
+        verivtoken.addListener(this);
     }
 
     @Override
@@ -126,6 +131,17 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(menumhs.getBtnInputToken())){
             inputtoken.setVisible(true);
             menumhs.dispose();
+            try {
+                regist = model.getRegist(tmpNim);
+                if(regist.getNim() != 0){
+                    String token = regist.getToken();
+                    String status = regist.getStatus();
+                    inputtoken.setTxtToken(token);
+                    inputtoken.setTxtStatus(status);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         //update data mhs
         else if(source.equals(editmhs.getBtnMenuUtama())){
@@ -158,13 +174,28 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }
         //registrasi mahasiswa
         else if(source.equals(regismhs.getBtnInputMatKul())){
-            
+            try {
+                model.getAllRegist();
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         //input token
         else if(source.equals(inputtoken.getBtnSubmitToken())){
             tmpToken = inputtoken.getTxtInputToken();
-            model.inputToken(tmpNim, tmpToken);
-            inputtoken.showMessage(null, "Token berhasil diinputkan");
+            try {
+                regist = model.getRegist(tmpNim);
+                if(regist.getNim() != 0){
+                    inputtoken.showMessage(null, "Anda sudah pernah input Token!");
+                }else{
+                    model.inputToken(tmpNim, tmpToken);
+                    inputtoken.showMessage(null, "Token berhasil diinputkan");
+                    inputtoken.setTxtToken(tmpToken);
+                    inputtoken.setTxtStatus("Belum Terverifikasi");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
             menumhs.setVisible(true);
             inputtoken.dispose();
@@ -207,9 +238,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             tmpNim = inputnimtoken.getTxtInputNIMMhs();
             try {
                 mhs = model.getMhs(tmpNim);
-                if(mhs != null){
+                if(mhs.getNim() != 0){
                     inputnimtoken.showMessage(null, "NIM ditemukan");
-                    inputtoken.setVisible(true);
+                    verivtoken.setVisible(true);
                     inputnimtoken.dispose();
                 }else{
                     inputnimtoken.showMessage(null, "NIM tidak terdaftar");
@@ -220,6 +251,36 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(inputnimtoken.getBtnMenuUtamaAdmin())){
             menuadmin.setVisible(true);
             inputnimtoken.dispose();
+            
+        // Verifikasi Token
+        }else if(source.equals(verivtoken.getBtnLihatToken())){
+            try {
+                regist = model.getRegist(tmpNim);
+                if(regist.getNim() != 0){
+                    String token = regist.getToken();
+                    String status = regist.getStatus();
+                    verivtoken.setTxtToken(token);
+                    verivtoken.setTxtStatus(status);
+                }else{
+                    verivtoken.showMessage(null, "Mahasiswa belum input Token");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(verivtoken.getBtnKonfirmasi())){
+            try {
+                regist = model.getRegist(tmpNim);
+                model.updateRegistNip(regist);
+                verivtoken.showMessage(null, "Berhasil!");
+                regist = model.getRegist(tmpNim);
+                String status = regist.getStatus();
+                verivtoken.setTxtStatus(status);
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(source.equals(verivtoken.getBtnKembali())){
+            inputnimtoken.setVisible(true);
+            verivtoken.dispose();
         }else if(source.equals(menuadmin.getBtnPenjadwalanKls())){
             pk.setVisible(true);
             menuadmin.dispose();
@@ -267,6 +328,5 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     @Override
     public void focusLost(FocusEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }
