@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Aplikasi;
 import Model.MataKuliah;
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -22,6 +24,11 @@ public class Pilih_MataKuliah extends javax.swing.JFrame {
     /**
      * Creates new form Pilih_MataKuliah
      */
+    
+    int idMk;
+    String namaMk;
+    int sks;
+    
     public Pilih_MataKuliah() {
         initComponents();
     }
@@ -60,6 +67,11 @@ public class Pilih_MataKuliah extends javax.swing.JFrame {
                 "idMatkul", "namaMatkul", "sks"
             }
         ));
+        tabelMatkul.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelMatkulMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelMatkul);
 
         btnSubmit.setText("Submit");
@@ -110,6 +122,18 @@ public class Pilih_MataKuliah extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tabelMatkulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMatkulMouseClicked
+        int index = tabelMatkul.getSelectedRow();
+        
+        TableModel model = tabelMatkul.getModel();
+        
+        String tmpIdMk = model.getValueAt(index, 0).toString();
+        idMk = Integer.parseInt(tmpIdMk);
+        namaMk = model.getValueAt(index, 1).toString();
+        String tmpSks = model.getValueAt(index, 2).toString();
+        sks = Integer.parseInt(tmpSks);
+    }//GEN-LAST:event_tabelMatkulMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -151,7 +175,7 @@ public class Pilih_MataKuliah extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelMatkul;
+    public javax.swing.JTable tabelMatkul;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnKembali() {
@@ -190,5 +214,17 @@ public class Pilih_MataKuliah extends javax.swing.JFrame {
             i++;
         }
         tabelMatkul.setModel(new DefaultTableModel(data, title));
+    }
+
+    public int getIdMk() {
+        return idMk;
+    }
+
+    public String getNamaMk() {
+        return namaMk;
+    }
+
+    public int getSks() {
+        return sks;
     }
 }

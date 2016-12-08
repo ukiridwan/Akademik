@@ -229,7 +229,10 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }
         //Pilih Mata Kuliah
         else if(source.equals(pilihmk.getBtnSubmit())){
-            
+            int idMk = pilihmk.getIdMk();
+            String namaMk = pilihmk.getNamaMk();
+            model.createIndeks(idMk, tmpNim, "T");
+            pilihmk.showMessage(null, "Berhasil mengambil mk "+namaMk);
         }
         else if(source.equals(pilihmk.getBtnKembali())){
             regismhs.setVisible(true);
