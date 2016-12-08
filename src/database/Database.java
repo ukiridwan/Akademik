@@ -229,10 +229,25 @@ public class Database {
         st.execute(query);
     }
     
+    public Registrasi getRegist(int nim) throws SQLException{
+        Registrasi regist = null;
+        String query = "SELECT * FROM registrasi WHERE nim = '"+nim+"'";
+        ResultSet rs = st.executeQuery(query);
+        if (!rs.next()){
+            regist = new Registrasi(0);
+        } else {
+            rs.beforeFirst();
+            while(rs.next()){
+                regist = new Registrasi(rs.getInt("idRegist"), rs.getInt("nim"), rs.getString("token"), rs.getString("status"));
+            }
+        }
+        return regist;
+    }
+    
     public ArrayList<Registrasi> getAllRegist() throws SQLException{
         ArrayList<Registrasi> dataRegist = new ArrayList<>();
         
-        String query = "SELECT * FROM registrasi";
+        String query = "select idRegist, nim, token, status from registrasi";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
               Registrasi regist = new Registrasi(rs.getInt("idRegist"), rs.getInt("nim"), rs.getString("token"), rs.getString("status"));

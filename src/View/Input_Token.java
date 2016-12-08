@@ -38,6 +38,8 @@ public class Input_Token extends javax.swing.JFrame {
         txtInputToken = new javax.swing.JTextField();
         btnSubmitToken = new javax.swing.JButton();
         btnMenuUtamaMhs = new javax.swing.JButton();
+        txtToken = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,41 +57,54 @@ public class Input_Token extends javax.swing.JFrame {
 
         btnMenuUtamaMhs.setText("Menu Utama");
 
+        txtToken.setEditable(false);
+
+        txtStatus.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap(582, Short.MAX_VALUE)
                         .addComponent(btnMenuUtamaMhs))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(lblInputToken)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSubmitToken)
-                            .addComponent(txtInputToken, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(lblKonfirmasiTkn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(217, 217, 217)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtToken)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblInputToken)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnSubmitToken)
+                                            .addComponent(txtInputToken, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtStatus, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(lblKonfirmasiTkn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(lblKonfirmasiTkn)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(txtToken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInputToken)
                     .addComponent(txtInputToken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSubmitToken)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(btnMenuUtamaMhs)
                 .addContainerGap())
         );
@@ -143,6 +158,8 @@ public class Input_Token extends javax.swing.JFrame {
     private javax.swing.JLabel lblInputToken;
     private javax.swing.JLabel lblKonfirmasiTkn;
     private javax.swing.JTextField txtInputToken;
+    private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtToken;
     // End of variables declaration//GEN-END:variables
 
     public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
@@ -155,6 +172,14 @@ public class Input_Token extends javax.swing.JFrame {
 
     public void setTxtInputToken(JTextField txtInputToken) {
         this.txtInputToken = txtInputToken;
+    }
+
+    public void setTxtStatus(String s) {
+        this.txtStatus.setText(s);
+    }
+
+    public void setTxtToken(String s) {
+        this.txtToken.setText(s);
     }
 
     public JButton getBtnSubmitToken() {

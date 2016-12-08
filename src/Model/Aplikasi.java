@@ -180,6 +180,11 @@ public class Aplikasi {
         con.delRegist(idRegist);
     }
     
+    public Registrasi getRegist(int nim) throws SQLException{
+        Registrasi regist = con.getRegist(nim);
+        return regist;
+    }
+    
     public ArrayList<Registrasi> getAllRegist() throws SQLException{
         return con.getAllRegist();
     }
