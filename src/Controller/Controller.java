@@ -338,7 +338,10 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
             datamhs.setVisible(true);
-            menumhs.dispose();
+            menudosen.dispose();
+        }else if(source.equals(datamhs.getBtnMenuUtamaDosen())){
+            menudosen.setVisible(true);
+            datamhs.dispose();
         }
     }
 
