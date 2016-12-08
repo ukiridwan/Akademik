@@ -270,13 +270,13 @@ public class Aplikasi {
         con.delJadwal(idJadwal);
     }
     
-    public ArrayList<Jadwal> getAllJadwal() throws SQLException{
-        return con.getAllJadwal();
+    public ArrayList<Jadwal> getAllJadwal(int nim) throws SQLException{
+        return con.getAllJadwal(nim);
     }
     
     //Absensi
-    public int createAbsensi(int idJadwal, int nim, String absen){
-        Absensi absensi = new Absensi(idJadwal, nim, absen);
+    public int createAbsensi(int idJadwal, int nim, String absen, String tidakAbsen){
+        Absensi absensi = new Absensi(idJadwal, nim, absen, tidakAbsen);
         try{
             dataAbsensi.add(absensi);
             con.saveAbsensi(absensi);
@@ -298,8 +298,8 @@ public class Aplikasi {
         con.delAbsensi(idAbsensi);
     }
     
-    public ArrayList<Absensi> getAllAbsensi() throws SQLException{
-        return con.getAllAbsensi();
+    public ArrayList<Absensi> getAllAbsensi(int nik) throws SQLException{
+        return con.getAllAbsensi(nik);
     }
 
     public Mahasiswa getMhs(String user) {

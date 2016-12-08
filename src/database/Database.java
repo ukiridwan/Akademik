@@ -337,10 +337,10 @@ public class Database {
         st.execute(query);
     }
     
-    public ArrayList<Jadwal> getAllJadwal() throws SQLException{
+    public ArrayList<Jadwal> getAllJadwal(int nim) throws SQLException{
         ArrayList<Jadwal> dataJadwal = new ArrayList<>();
         
-        String query = "SELECT * FROM jadwal";
+        String query = "SELECT idJadwal, idMatkul, nik, ruang FROM jadwal JOIN absensi USING(idJadwal) JOIN mahasiswa USING(nim) WHERE nim = '"+nim+"'";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
               Jadwal jadwal = new Jadwal(rs.getInt("idJadwal"), rs.getInt("idMatkul"), rs.getInt("nik"), rs.getString("ruang"));
@@ -368,13 +368,13 @@ public class Database {
         st.execute(query);
     }
     
-    public ArrayList<Absensi> getAllAbsensi() throws SQLException{
+    public ArrayList<Absensi> getAllAbsensi(int nik) throws SQLException{
         ArrayList<Absensi> dataAbsensi = new ArrayList<>();
         
-        String query = "SELECT * FROM absensi";
+        String query = "SELECT idAbsensi, idJadwal, nim, absen, tidakAbsen FROM absensi JOIN jadwal USING(idJadwal) JOIN dosen USING(nik) WHERE nik ='"+nik+"'";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
-              Absensi absensi = new Absensi(rs.getInt("idAbsensi"), rs.getInt("idJadwal"), rs.getInt("nim"), rs.getString("absen"));
+              Absensi absensi = new Absensi(rs.getInt("idAbsensi"), rs.getInt("idJadwal"), rs.getInt("nim"), rs.getString("absen"), rs.getString("tidakAbsen"));
               dataAbsensi.add(absensi);
         }
         return dataAbsensi;  

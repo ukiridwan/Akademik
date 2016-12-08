@@ -44,6 +44,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private Penjadwalan_Kelas pk;
     private Veriv_Token verivtoken;
     private Input_MatKul inputmatkul;
+    private Input_Absen inputabsen;
     private Database db;
     private Statement st;
     private String query;
@@ -76,6 +77,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         pilihmk = new Pilih_MataKuliah();
         verivtoken = new Veriv_Token();
         inputmatkul = new Input_MatKul();
+        inputabsen = new Input_Absen();
         lm.setVisible(true);
         lm.addListener(this);
         la.addListener(this);
@@ -92,6 +94,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         pilihmk.addListener(this);
         verivtoken.addListener(this);
         inputmatkul.addListener(this);
+        inputabsen.addListener(this);
     }
 
     @Override
@@ -128,7 +131,14 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         else if(source.equals(menumhs.getBtnEditDataMhs())){
             editmhs.setVisible(true);
             menumhs.dispose();
+            
+        //lihat Jadwal mahasiswa
         }else if(source.equals(menumhs.getBtnJadwalMhs())){
+            try {
+                jadwalmhs.viewJadwal(model.getAllJadwal(tmpNim));
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
             jadwalmhs.setVisible(true);
             menumhs.dispose();
         }else if(source.equals(menumhs.getBtnRegistrasiMhs())){
@@ -176,7 +186,6 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
                 editmhs.showMessage(null, "Edit Berhasil");
             }
         }
-        //lihat jadwal mhs
         else if(source.equals(jadwalmhs.getBtnMenuUtamaMhs())){
             menumhs.setVisible(true);
             jadwalmhs.dispose();
@@ -184,17 +193,12 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         //registrasi mahasiswa
         else if(source.equals(regismhs.getBtnPilihMatKul())){
             try {
-                try {
-                    pilihmk.viewMatkul(model.getAllMatkul());
-                } catch (SQLException ex) {
-                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                model.getAllRegist();
-                pilihmk.setVisible(true);
-                regismhs.dispose();
+                pilihmk.viewMatkul(model.getAllMatkul());
             } catch (SQLException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
+            pilihmk.setVisible(true);
+            regismhs.dispose();
         }else if(source.equals(regismhs.getBtnKnfrmsTknPmbyrn())){
             inputtoken.setVisible(true);
             regismhs.dispose();
@@ -329,6 +333,9 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
                 model.createMatkul(namaMatkul, sks);
                 editmhs.showMessage(null, "Matkul berhasil ter-input!");
             }
+        }else if (source.equals(inputmatkul.getBtnKembali())){
+            menuadmin.setVisible(true);
+            inputmatkul.dispose();
         }
         
         //login dosen
@@ -361,8 +368,25 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(menudosen.getBtnLogOutDosen())){
             lm.setVisible(true);
             menudosen.dispose();
-        }else if(source.equals(menudosen.getBtnInputIndeks())){
             
+        // Input Absen
+        }else if(source.equals(menudosen.getBtnInputAbsen())){
+            try {
+                inputabsen.viewAbsen(model.getAllAbsensi(tmpNik));
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            inputabsen.setVisible(true);
+            menudosen.dispose();
+        }else if(source.equals(inputabsen.getBtnMenuUtamaMhs())){
+            menudosen.setVisible(true);
+            inputabsen.dispose();
+            
+        // Input Indeks    
+        }else if(source.equals(menudosen.getBtnInputIndeks())){
+        
+            
+        // Lihat data Mahasiswa    
         }else if(source.equals(menudosen.getBtnLihatDataMhs())){
             try {
                 datamhs.viewMhs(model.getAllMhs());

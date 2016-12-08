@@ -5,12 +5,15 @@
  */
 package View;
 
+import Model.Absensi;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -35,122 +38,62 @@ public class Input_Absen extends javax.swing.JFrame {
     private void initComponents() {
 
         lblInputAbsenMhs = new javax.swing.JLabel();
-        tabKelas = new javax.swing.JTabbedPane();
-        panelKelas01 = new javax.swing.JPanel();
-        scrollPaneInputAbsenKls01 = new javax.swing.JScrollPane();
-        tabelKls01 = new javax.swing.JTable();
-        panelKelas02 = new javax.swing.JPanel();
-        scrollPaneInputAbsenKls02 = new javax.swing.JScrollPane();
-        tabelKls02 = new javax.swing.JTable();
         btnMenuUtamaMhs = new javax.swing.JButton();
+        scrollPaneInputAbsenKls02 = new javax.swing.JScrollPane();
+        tabelAbsen = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblInputAbsenMhs.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblInputAbsenMhs.setText("Input Absen Mahasiswa");
 
-        tabelKls01.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "NIM", "NAMA", "KLS", "MATA KULIAH", "ABSEN"
-            }
-        ));
-        scrollPaneInputAbsenKls01.setViewportView(tabelKls01);
-
-        javax.swing.GroupLayout panelKelas01Layout = new javax.swing.GroupLayout(panelKelas01);
-        panelKelas01.setLayout(panelKelas01Layout);
-        panelKelas01Layout.setHorizontalGroup(
-            panelKelas01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKelas01Layout.createSequentialGroup()
-                .addComponent(scrollPaneInputAbsenKls01, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelKelas01Layout.setVerticalGroup(
-            panelKelas01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelKelas01Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPaneInputAbsenKls01, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-
-        tabKelas.addTab("Kelas 01", panelKelas01);
-
-        tabelKls02.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "NIM", "NAMA", "KLS", "MATA KULIAH", "ABSEN"
-            }
-        ));
-        scrollPaneInputAbsenKls02.setViewportView(tabelKls02);
-
-        javax.swing.GroupLayout panelKelas02Layout = new javax.swing.GroupLayout(panelKelas02);
-        panelKelas02.setLayout(panelKelas02Layout);
-        panelKelas02Layout.setHorizontalGroup(
-            panelKelas02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelKelas02Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelKelas02Layout.setVerticalGroup(
-            panelKelas02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelKelas02Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-
-        tabKelas.addTab("Kelas 02", panelKelas02);
-
         btnMenuUtamaMhs.setText("Menu Utama");
+
+        tabelAbsen.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "idAbsensi", "idJadwal", "nim", "absen", "tidakAbsen"
+            }
+        ));
+        scrollPaneInputAbsenKls02.setViewportView(tabelAbsen);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(lblInputAbsenMhs)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabKelas)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(lblInputAbsenMhs))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnMenuUtamaMhs)))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(btnMenuUtamaMhs)
+                        .addGap(9, 9, 9)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblInputAbsenMhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(scrollPaneInputAbsenKls02, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMenuUtamaMhs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -163,7 +106,7 @@ public class Input_Absen extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        //<editor-fold detabelAbsen="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -197,13 +140,8 @@ public class Input_Absen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenuUtamaMhs;
     private javax.swing.JLabel lblInputAbsenMhs;
-    private javax.swing.JPanel panelKelas01;
-    private javax.swing.JPanel panelKelas02;
-    private javax.swing.JScrollPane scrollPaneInputAbsenKls01;
     private javax.swing.JScrollPane scrollPaneInputAbsenKls02;
-    private javax.swing.JTabbedPane tabKelas;
-    private javax.swing.JTable tabelKls01;
-    private javax.swing.JTable tabelKls02;
+    private javax.swing.JTable tabelAbsen;
     // End of variables declaration//GEN-END:variables
 
     public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
@@ -222,4 +160,18 @@ public class Input_Absen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(c,s);
     };
 
+    public void viewAbsen(ArrayList<Absensi> absen){
+        String[] title = {"idAbsensi", "idJadwal", "nim", "absen", "tidakAbsen"};
+        Object data[][] = new Object[absen.size()][5];
+        int i = 0;
+        for(Absensi a : absen){
+            data[i][0] = (Integer) a.getIdAbsensi();
+            data[i][1] = (Integer) a.getIdJadwal();
+            data[i][2] = (Integer) a.getNim();
+            data[i][3] = (String) a.getAbsen();
+            data[i][4] = (String) a.getTidakAbsen();
+            i++;
+        }
+        tabelAbsen.setModel(new DefaultTableModel(data, title));
+    }
 }

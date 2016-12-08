@@ -14,18 +14,21 @@ public class Absensi {
     private int idJadwal;
     private int nim;
     private String absen;
+    private String tidakAbsen;
 
-    public Absensi(int idAbsensi, int idJadwal, int nim, String absen) {
+    public Absensi(int idAbsensi, int idJadwal, int nim, String absen, String tidakAbsen) {
         this.idAbsensi = idAbsensi;
         this.idJadwal = idJadwal;
         this.nim = nim;
         this.absen = absen;
+        this.tidakAbsen = tidakAbsen;
     }
 
-    public Absensi(int idJadwal, int nim, String absen) {
+    public Absensi(int idJadwal, int nim, String absen, String tidakAbsen) {
         this.idJadwal = idJadwal;
         this.nim = nim;
         this.absen = absen;
+        this.tidakAbsen = tidakAbsen;
     }
 
     public int getIdAbsensi() {
@@ -58,6 +61,14 @@ public class Absensi {
 
     public void setAbsen(String absen) {
         this.absen = absen;
+    }
+
+    public String getTidakAbsen() {
+        return tidakAbsen;
+    }
+
+    public void setTidakAbsen(String tidakAbsen) {
+        this.tidakAbsen = tidakAbsen;
     }
     
     

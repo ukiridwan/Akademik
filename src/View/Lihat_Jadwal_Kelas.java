@@ -160,15 +160,16 @@ public class Lihat_Jadwal_Kelas extends javax.swing.JFrame {
     }
 
     public void viewJadwal(ArrayList<Jadwal> jadwal){
-        String[] title = {"idMatkul", "namaMatkul", "sks"};
-        Object data[][] = new Object[matkul.size()][3];
+        String[] title = {"idJadwal","idMatkul", "nik", "ruang"};
+        Object data[][] = new Object[jadwal.size()][4];
         int i = 0;
-        for(MataKuliah mk : matkul){
-            data[i][0] = (Integer) mk.getIdMatkul();
-            data[i][1] = (String) mk.getNamaMatkul();
-            data[i][2] = (Integer) mk.getSks();
+        for(Jadwal j : jadwal){
+            data[i][0] = (Integer) j.getIdJadwal();
+            data[i][1] = (Integer) j.getIdMatkul();
+            data[i][2] = (Integer) j.getNik();
+            data[i][3] = (String) j.getRuang();
             i++;
         }
-        tabelMatkul.setModel(new DefaultTableModel(data, title));
+        tabelJadwal.setModel(new DefaultTableModel(data, title));
     }
 }
