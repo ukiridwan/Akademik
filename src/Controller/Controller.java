@@ -35,7 +35,8 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
     private MenuUtama_Dosen menudosen;
     private EditData_Mahasiswa editmhs;
     private MenuJadwal jadwaldsn;
-    private Lihat_Jadwal_Kelas jadwalmhs; 
+    private Lihat_Jadwal_Kelas jadwalmhs;
+    private Lihat_Data_Mahasiswa datamhs;
     private MenuRegistrasi regismhs;
     private Input_NIMToken inputnimtoken;
     private Input_Token inputtoken;
@@ -62,6 +63,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         la = new Login_Admin();
         ld = new Login_Dosen();
         jadwalmhs = new Lihat_Jadwal_Kelas();
+        datamhs = new Lihat_Data_Mahasiswa();
         regismhs = new MenuRegistrasi();
         menumhs = new MenuUtama_Mahasiswa();
         menuadmin = new MenuUtama_Admin();
@@ -75,6 +77,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         la.addListener(this);
         ld.addListener(this);
         jadwalmhs.addListener(this);
+        datamhs.addListener(this);
         regismhs.addListener(this);
         menumhs.addListener(this);
         menuadmin.addListener(this);
@@ -317,6 +320,14 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             menudosen.dispose();
         }else if(source.equals(menudosen.getBtnInputIndeks())){
             
+        }else if(source.equals(menudosen.getBtnLihatDataMhs())){
+            try {
+                datamhs.viewMhs(model.getAllMhs());
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            datamhs.setVisible(true);
+            menumhs.dispose();
         }
     }
 

@@ -5,10 +5,13 @@
  */
 package View;
 
+import Model.Mahasiswa;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,19 +47,19 @@ public class Lihat_Data_Mahasiswa extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nama", "NIM", "Alamat", "No. Telp"
+                "nim", "namaMhs", "kelas", "alamatMhs", "telpMhs"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -155,4 +158,19 @@ public class Lihat_Data_Mahasiswa extends javax.swing.JFrame {
     public void showMessage(Component c, String s){
             JOptionPane.showMessageDialog(c,s);
     };
+    
+    public void viewMhs(ArrayList<Mahasiswa> mhs){
+        String[] title = {"nim", "namaMhs", "kelas", "alamatMhs", "telpMhs"};
+        Object data[][] = new Object[mhs.size()][5];
+        int i = 0;
+        for(Mahasiswa m : mhs){
+            data[i][0] = (Integer) m.getNim();
+            data[i][1] = (String) m.getNamaMhs();
+            data[i][2] = (String) m.getKelas();
+            data[i][3] = (String) m.getAlamatMhs();
+            data[i][4] = (String) m.getTelpMhs();
+            i++;
+        }
+        jTable1.setModel(new DefaultTableModel(data, title));
+    }
 }
