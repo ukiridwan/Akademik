@@ -37,7 +37,7 @@
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnKnfrmsTknPmbyrn" max="32767" attributes="0"/>
-                      <Component id="btnInputMatKul" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="btnPilihMatKul" min="-2" pref="177" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -52,7 +52,7 @@
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="btnKnfrmsTknPmbyrn" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnInputMatKul" min="-2" max="-2" attributes="0"/>
+              <Component id="btnPilihMatKul" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="73" max="32767" attributes="0"/>
               <Component id="btnMenuUtamaMhs" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -82,9 +82,9 @@
         <Property name="text" type="java.lang.String" value="Konfirmasi Token Pembayaran"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnInputMatKul">
+    <Component class="javax.swing.JButton" name="btnPilihMatKul">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Input Mata Kuliah"/>
+        <Property name="text" type="java.lang.String" value="Pilih Mata Kuliah"/>
       </Properties>
     </Component>
   </SubComponents>

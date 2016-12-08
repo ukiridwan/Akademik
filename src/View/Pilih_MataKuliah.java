@@ -5,7 +5,7 @@
  */
 package View;
 
-import Model.Jadwal;
+import Model.MataKuliah;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author USER
+ * @author Toms
  */
-public class Lihat_Jadwal_Kelas extends javax.swing.JFrame {
+public class Pilih_MataKuliah extends javax.swing.JFrame {
 
     /**
-     * Creates new form Lihat_Jadwal_Kelas
+     * Creates new form Pilih_MataKuliah
      */
-    public Lihat_Jadwal_Kelas() {
+    public Pilih_MataKuliah() {
         initComponents();
     }
 
@@ -36,70 +36,79 @@ public class Lihat_Jadwal_Kelas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelJadwal = new javax.swing.JTable();
-        btnMenuUtamaMhs = new javax.swing.JButton();
+        tabelMatkul = new javax.swing.JTable();
+        btnSubmit = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Jadwal Kelas");
+        jLabel1.setText("Input Mata Kuliah");
 
-        tabelJadwal.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel2.setText("Ket : Mahasiswa dapat memilih hingga 4 mata kuliah.");
+
+        tabelMatkul.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "idJadwal", "idMatkul", "nik", "ruang"
+                "idMatkul", "namaMatkul", "sks"
             }
         ));
-        jScrollPane1.setViewportView(tabelJadwal);
+        jScrollPane1.setViewportView(tabelMatkul);
 
-        btnMenuUtamaMhs.setText("Menu Utama");
-        btnMenuUtamaMhs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuUtamaMhsActionPerformed(evt);
-            }
-        });
+        btnSubmit.setText("Submit");
+
+        btnKembali.setText("Kembali");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnMenuUtamaMhs))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(298, 298, 298)
+                .addComponent(btnSubmit)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 156, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
+                .addContainerGap(178, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(27, 27, 27)))
+                        .addGap(216, 216, 216))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(174, 174, 174))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnKembali)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(btnMenuUtamaMhs)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnSubmit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(btnKembali)
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnMenuUtamaMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuUtamaMhsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuUtamaMhsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,48 +127,59 @@ public class Lihat_Jadwal_Kelas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Lihat_Jadwal_Kelas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pilih_MataKuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Lihat_Jadwal_Kelas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pilih_MataKuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Lihat_Jadwal_Kelas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pilih_MataKuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Lihat_Jadwal_Kelas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pilih_MataKuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Lihat_Jadwal_Kelas().setVisible(true);
+                new Pilih_MataKuliah().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenuUtamaMhs;
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelJadwal;
+    private javax.swing.JTable tabelMatkul;
     // End of variables declaration//GEN-END:variables
 
-    public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
-        this.btnMenuUtamaMhs = btnMenuUtamaMhs;
+    public JButton getBtnKembali() {
+        return btnKembali;
     }
 
-    public JButton getBtnMenuUtamaMhs() {
-        return btnMenuUtamaMhs;
+    public JButton getBtnSubmit() {
+        return btnSubmit;
     }
-    
+
+    public void setBtnKembali(JButton btnKembali) {
+        this.btnKembali = btnKembali;
+    }
+
+    public void setBtnSubmit(JButton btnSubmit) {
+        this.btnSubmit = btnSubmit;
+    }
+
     public void addListener(ActionListener e){
-        btnMenuUtamaMhs.addActionListener(e);
+        btnKembali.addActionListener(e);
+        btnSubmit.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){
             JOptionPane.showMessageDialog(c,s);
     }
-
-    public void viewJadwal(ArrayList<Jadwal> jadwal){
+    
+    public void viewMatkul(ArrayList<MataKuliah> matkul){
         String[] title = {"idMatkul", "namaMatkul", "sks"};
         Object data[][] = new Object[matkul.size()][3];
         int i = 0;
