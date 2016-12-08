@@ -35,7 +35,7 @@ public class MenuRegistrasi extends javax.swing.JFrame {
         lblRegistrasi = new javax.swing.JLabel();
         btnMenuUtamaMhs = new javax.swing.JButton();
         btnKnfrmsTknPmbyrn = new javax.swing.JButton();
-        btnInputMatKul = new javax.swing.JButton();
+        btnPilihMatKul = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +51,7 @@ public class MenuRegistrasi extends javax.swing.JFrame {
 
         btnKnfrmsTknPmbyrn.setText("Konfirmasi Token Pembayaran");
 
-        btnInputMatKul.setText("Input Mata Kuliah");
+        btnPilihMatKul.setText("Pilih Mata Kuliah");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,11 +66,10 @@ public class MenuRegistrasi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(lblRegistrasi)
-                        .addGap(41, 41, 41))
+                        .addComponent(lblRegistrasi))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnKnfrmsTknPmbyrn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInputMatKul, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnPilihMatKul, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -81,7 +80,7 @@ public class MenuRegistrasi extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(btnKnfrmsTknPmbyrn)
                 .addGap(18, 18, 18)
-                .addComponent(btnInputMatKul)
+                .addComponent(btnPilihMatKul)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(btnMenuUtamaMhs)
                 .addContainerGap())
@@ -133,14 +132,14 @@ public class MenuRegistrasi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInputMatKul;
     private javax.swing.JButton btnKnfrmsTknPmbyrn;
     private javax.swing.JButton btnMenuUtamaMhs;
+    private javax.swing.JButton btnPilihMatKul;
     private javax.swing.JLabel lblRegistrasi;
     // End of variables declaration//GEN-END:variables
 
-    public void setBtnInputMatKul(JButton btnInputMatKul) {
-        this.btnInputMatKul = btnInputMatKul;
+    public void setBtnPilihMatKul(JButton btnInputMatKul) {
+        this.btnPilihMatKul = btnInputMatKul;
     }
 
     public void setBtnMenuUtamaMhs(JButton btnMenuUtamaMhs) {
@@ -151,8 +150,8 @@ public class MenuRegistrasi extends javax.swing.JFrame {
         this.btnKnfrmsTknPmbyrn = btnKnfrmsTknPmbyrn;
     }
 
-    public JButton getBtnInputMatKul() {
-        return btnInputMatKul;
+    public JButton getBtnPilihMatKul() {
+        return btnPilihMatKul;
     }
 
     public JButton getBtnMenuUtamaMhs() {
@@ -164,7 +163,7 @@ public class MenuRegistrasi extends javax.swing.JFrame {
     }
 
     public void addListener(ActionListener e){
-        btnInputMatKul.addActionListener(e);
+        btnPilihMatKul.addActionListener(e);
         btnKnfrmsTknPmbyrn.addActionListener(e);
         btnMenuUtamaMhs.addActionListener(e);
     }
