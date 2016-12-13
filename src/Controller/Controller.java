@@ -147,20 +147,6 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(menumhs.getBtnLogOutMhs())){
             lm.setVisible(true);
             menumhs.dispose();
-        }else if(source.equals(menumhs.getBtnInputToken())){
-            inputtoken.setVisible(true);
-            menumhs.dispose();
-            try {
-                regist = model.getRegist(tmpNim);
-                if(regist.getNim() != 0){
-                    String token = regist.getToken();
-                    String status = regist.getStatus();
-                    inputtoken.setTxtToken(token);
-                    inputtoken.setTxtStatus(status);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         //update data mhs
         else if(source.equals(editmhs.getBtnMenuUtama())){
@@ -202,6 +188,17 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(regismhs.getBtnKnfrmsTknPmbyrn())){
             inputtoken.setVisible(true);
             regismhs.dispose();
+            try {
+                regist = model.getRegist(tmpNim);
+                if(regist.getNim() != 0){
+                    String token = regist.getToken();
+                    String status = regist.getStatus();
+                    inputtoken.setTxtToken(token);
+                    inputtoken.setTxtStatus(status);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else if(source.equals(regismhs.getBtnMenuUtamaMhs())){
             menumhs.setVisible(true);
             regismhs.dispose();
@@ -224,7 +221,7 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else if(source.equals(inputtoken.getBtnMenuUtamaMhs())){
-            menumhs.setVisible(true);
+            regismhs.setVisible(true);
             inputtoken.dispose();
         }
         //Pilih Mata Kuliah
@@ -319,9 +316,6 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
         }else if(source.equals(verivtoken.getBtnKembali())){
             inputnimtoken.setVisible(true);
             verivtoken.dispose();
-        }else if(source.equals(menuadmin.getBtnPenjadwalanKls())){
-            pk.setVisible(true);
-            menuadmin.dispose();
         }
         //Input Matkul
         else if (source.equals(menuadmin.getBtnInputMatkul())){
@@ -386,10 +380,6 @@ public class Controller extends MouseAdapter implements ActionListener, FocusLis
             inputabsen.dispose();
             
         // Input Indeks    
-        }else if(source.equals(menudosen.getBtnInputIndeks())){
-        
-            
-        // Lihat data Mahasiswa    
         }else if(source.equals(menudosen.getBtnLihatDataMhs())){
             try {
                 datamhs.viewMhs(model.getAllMhs());

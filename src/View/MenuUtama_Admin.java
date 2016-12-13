@@ -35,7 +35,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
         lblMenuUtamaAdmin = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
         btnKnfrmPmbyrnMhs = new javax.swing.JButton();
-        btnPenjadwalanKls = new javax.swing.JButton();
         btnLogOutAdmin = new javax.swing.JButton();
         btnInputMatkul = new javax.swing.JButton();
 
@@ -54,8 +53,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
             }
         });
 
-        btnPenjadwalanKls.setText("Penjadwalan Kelas");
-
         btnLogOutAdmin.setText("Log Out");
 
         btnInputMatkul.setText("Input Mata Kuliah");
@@ -71,18 +68,16 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnLogOutAdmin))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnKnfrmPmbyrnMhs)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMenuUtamaAdmin)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addComponent(lblAdmin)))
-                                .addComponent(btnPenjadwalanKls, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(btnInputMatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnKnfrmPmbyrnMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblMenuUtamaAdmin)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(44, 44, 44)
+                                    .addComponent(lblAdmin))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(btnInputMatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 227, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -95,15 +90,10 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
                 .addComponent(lblAdmin)
                 .addGap(18, 18, 18)
                 .addComponent(btnKnfrmPmbyrnMhs)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(btnLogOutAdmin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPenjadwalanKls)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnInputMatkul)))
+                .addGap(26, 26, 26)
+                .addComponent(btnInputMatkul)
+                .addGap(58, 58, 58)
+                .addComponent(btnLogOutAdmin)
                 .addContainerGap())
         );
 
@@ -153,7 +143,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnInputMatkul;
     private javax.swing.JButton btnKnfrmPmbyrnMhs;
     private javax.swing.JButton btnLogOutAdmin;
-    private javax.swing.JButton btnPenjadwalanKls;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblMenuUtamaAdmin;
     // End of variables declaration//GEN-END:variables
@@ -164,10 +153,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
 
     public void setBtnLogOutAdmin(JButton btnLogOutAdmin) {
         this.btnLogOutAdmin = btnLogOutAdmin;
-    }
-
-    public void setBtnPenjadwalanKls(JButton btnPenjadwalanKls) {
-        this.btnPenjadwalanKls = btnPenjadwalanKls;
     }
 
     public void setBtnInputMatkul(JButton btnInputMatkul) {
@@ -182,10 +167,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
         return btnLogOutAdmin;
     }
 
-    public JButton getBtnPenjadwalanKls() {
-        return btnPenjadwalanKls;
-    }
-
     public JButton getBtnInputMatkul() {
         return btnInputMatkul;
     }
@@ -193,7 +174,6 @@ public class MenuUtama_Admin extends javax.swing.JFrame {
     public void addListener(ActionListener e){
         btnKnfrmPmbyrnMhs.addActionListener(e);
         btnLogOutAdmin.addActionListener(e);
-        btnPenjadwalanKls.addActionListener(e);
         btnInputMatkul.addActionListener(e);
     }
     
