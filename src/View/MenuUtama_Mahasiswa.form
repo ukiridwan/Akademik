@@ -50,7 +50,6 @@
                                   <Component id="btnJadwalMhs" max="32767" attributes="0"/>
                                   <Component id="btnRegistrasiMhs" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnEditDataMhs" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnInputToken" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -74,9 +73,7 @@
               <Component id="btnEditDataMhs" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnJadwalMhs" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnInputToken" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnLogOutMhs" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -118,11 +115,6 @@
     <Component class="javax.swing.JButton" name="btnLogOutMhs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Log Out"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnInputToken">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Input Token"/>
       </Properties>
     </Component>
   </SubComponents>

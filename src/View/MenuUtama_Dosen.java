@@ -35,9 +35,6 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
         lblMenuUtamaDosen = new javax.swing.JLabel();
         lblDosen = new javax.swing.JLabel();
         btnInputAbsen = new javax.swing.JButton();
-        btnInputIndeks = new javax.swing.JButton();
-        btnUpdateStatusMhs = new javax.swing.JButton();
-        btnLihatJdwlKls = new javax.swing.JButton();
         btnLihatDataMhs = new javax.swing.JButton();
         btnLogOutDosen = new javax.swing.JButton();
 
@@ -57,12 +54,6 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
             }
         });
 
-        btnInputIndeks.setText("Input Indeks");
-
-        btnUpdateStatusMhs.setText("Update Status Mahasiswa");
-
-        btnLihatJdwlKls.setText("Lihat Jadwal Kelas");
-
         btnLihatDataMhs.setText("Lihat Data Mahasiswa");
 
         btnLogOutDosen.setText("Log Out");
@@ -71,33 +62,26 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnLogOutDosen)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnLogOutDosen))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(btnInputAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLihatDataMhs)
+                        .addGap(0, 201, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(187, 187, 187)
+                .addGap(246, 246, 246)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMenuUtamaDosen)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMenuUtamaDosen)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(lblDosen))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnInputAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInputIndeks, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLihatDataMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLihatJdwlKls, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(btnUpdateStatusMhs)
-                        .addGap(70, 70, 70)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addGap(75, 75, 75)
+                        .addComponent(lblDosen)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,14 +93,8 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInputAbsen)
-                    .addComponent(btnLihatJdwlKls))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInputIndeks)
                     .addComponent(btnLihatDataMhs))
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdateStatusMhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(btnLogOutDosen)
                 .addContainerGap())
         );
@@ -166,11 +144,8 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInputAbsen;
-    private javax.swing.JButton btnInputIndeks;
     private javax.swing.JButton btnLihatDataMhs;
-    private javax.swing.JButton btnLihatJdwlKls;
     private javax.swing.JButton btnLogOutDosen;
-    private javax.swing.JButton btnUpdateStatusMhs;
     private javax.swing.JLabel lblDosen;
     private javax.swing.JLabel lblMenuUtamaDosen;
     // End of variables declaration//GEN-END:variables
@@ -179,57 +154,31 @@ public class MenuUtama_Dosen extends javax.swing.JFrame {
         this.btnInputAbsen = btnInputAbsen;
     }
 
-    public void setBtnInputIndeks(JButton btnInputIndeks) {
-        this.btnInputIndeks = btnInputIndeks;
-    }
-
     public void setBtnLihatDataMhs(JButton btnLihatDataMhs) {
         this.btnLihatDataMhs = btnLihatDataMhs;
-    }
-
-    public void setBtnLihatJdwlKls(JButton btnLihatJdwlKls) {
-        this.btnLihatJdwlKls = btnLihatJdwlKls;
     }
 
     public void setBtnLogOutDosen(JButton btnLogOutDosen) {
         this.btnLogOutDosen = btnLogOutDosen;
     }
 
-    public void setBtnUpdateStatusMhs(JButton btnUpdateStatusMhs) {
-        this.btnUpdateStatusMhs = btnUpdateStatusMhs;
-    }
-
     public JButton getBtnInputAbsen() {
         return btnInputAbsen;
-    }
-
-    public JButton getBtnInputIndeks() {
-        return btnInputIndeks;
     }
 
     public JButton getBtnLihatDataMhs() {
         return btnLihatDataMhs;
     }
 
-    public JButton getBtnLihatJdwlKls() {
-        return btnLihatJdwlKls;
-    }
-
     public JButton getBtnLogOutDosen() {
         return btnLogOutDosen;
     }
 
-    public JButton getBtnUpdateStatusMhs() {
-        return btnUpdateStatusMhs;
-    }
 
     public void addListener(ActionListener e){
         btnInputAbsen.addActionListener(e);
-        btnInputIndeks.addActionListener(e);
         btnLihatDataMhs.addActionListener(e);
-        btnLihatJdwlKls.addActionListener(e);
         btnLogOutDosen.addActionListener(e);
-        btnUpdateStatusMhs.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){

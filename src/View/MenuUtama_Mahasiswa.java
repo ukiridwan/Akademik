@@ -58,7 +58,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         btnEditDataMhs = new javax.swing.JButton();
         btnRegistrasiMhs = new javax.swing.JButton();
         btnLogOutMhs = new javax.swing.JButton();
-        btnInputToken = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(685, 300));
@@ -76,8 +75,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         btnRegistrasiMhs.setText("Registrasi");
 
         btnLogOutMhs.setText("Log Out");
-
-        btnInputToken.setText("Input Token");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,8 +99,7 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnJadwalMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnRegistrasiMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEditDataMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnInputToken, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(btnEditDataMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -120,9 +116,7 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
                 .addComponent(btnEditDataMhs)
                 .addGap(18, 18, 18)
                 .addComponent(btnJadwalMhs)
-                .addGap(18, 18, 18)
-                .addComponent(btnInputToken)
-                .addGap(1, 1, 1)
+                .addGap(42, 42, 42)
                 .addComponent(btnLogOutMhs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -168,7 +162,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditDataMhs;
-    private javax.swing.JButton btnInputToken;
     private javax.swing.JButton btnJadwalMhs;
     private javax.swing.JButton btnLogOutMhs;
     private javax.swing.JButton btnRegistrasiMhs;
@@ -192,10 +185,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         return btnRegistrasiMhs;
     }
 
-    public JButton getBtnInputToken() {
-        return btnInputToken;
-    }
-
     public void setBtnEditDataMhs(JButton btnEditDataMhs) {
         this.btnEditDataMhs = btnEditDataMhs;
     }
@@ -212,10 +201,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         this.btnRegistrasiMhs = btnRegistrasiMhs;
     }
 
-    public void setBtnInputToken(JButton btnInputToken) {
-        this.btnInputToken = btnInputToken;
-    }
-
     public void addListener(ActionListener e){
         btnJadwalMhs.addActionListener(e);
         btnLogOutMhs.addActionListener(e);
@@ -223,7 +208,6 @@ public class MenuUtama_Mahasiswa extends javax.swing.JFrame {
         btnEditDataMhs.addActionListener(e);
         btnJadwalMhs.addActionListener(e);   
         btnLogOutMhs.addActionListener(e);
-        btnInputToken.addActionListener(e);
     }
     
     public void showMessage(Component c, String s){
